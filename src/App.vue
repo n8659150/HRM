@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <Header />
-    <router-view/>
+    <router-view :key="routerKey" />
     <TabBar />
   </div>
 </template>
@@ -15,7 +15,12 @@ export default {
   components:{
     Header,
     TabBar
-  }
+  },
+  computed: {
+    routerKey() {
+        return this.$route.name !== undefined? this.$route.name +new Date(): this.$route +new Date()
+    }
+ }
 };
 </script>
 

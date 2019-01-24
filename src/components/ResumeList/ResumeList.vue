@@ -1,20 +1,15 @@
 <template>
-
-
-
-<ul>
-  <li v-for="resume in resumes" :key="resume.id">
-    <!-- <a href="">{{item}}</a> -->
-     <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">{{resume}}</router-link>
-  </li>
-</ul>
-
-
-
+  <ul>
+    <li v-for="resume in resumes" :key="resume.id">
+      <!-- <a href="">{{item}}</a> -->
+      <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">{{resume.name}}</router-link>
+    </li>
+  </ul>
 </template>
 
 <script>
 import { fetchResumeList } from "@/helpers/resumeFetch";
+import store from "@/helpers/store";
 export default {
   name: "ResumeList",
   data() {
@@ -23,17 +18,18 @@ export default {
     };
   },
 
- methods: {
-    async fetchResumes () {
+  methods: {
+    async fetchResumes() {
       let result = await fetchResumeList();
-      this.resumes = result.data
-    },
-},
+      store.save('cachedResumes', result.data);
+      this.resumes = result.data;
 
-  mounted () {
+    }
+  },
+
+  mounted() {
     this.fetchResumes();
   }
-
 };
 </script>
 

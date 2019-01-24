@@ -2,18 +2,22 @@
   <div>
     <div v-if="resume">{{ resume.name }}</div>
     <skill name="ssssss"></skill>
+    <SeeAlso :resumeList="cachedResumes"></SeeAlso>
   </div>
 </template>
 
 <script>
 import { fetchResumeById } from "@/helpers/resumeFetch";
-import Skill from '@/components/Skill/Skill.vue';
+import store from "@/helpers/store";
+import Skill from "@/components/Skill/Skill.vue";
+import SeeAlso from "@/components/SeeAlso/SeeAlso.vue";
 export default {
   name: "ResumeDetail",
-  components: { Skill},
+  components: { Skill, SeeAlso },
   data() {
     return {
-      resume: null
+      resume: null,
+      cachedResumes: []
     };
   },
   methods: {
@@ -24,6 +28,10 @@ export default {
   },
   mounted() {
     this.fetchCurrentResume();
+    let cachedResumes = store.fetch("cachedResumes");
+    if (cachedResumes) {
+      this.cachedResumes = cachedResumes;
+    }
   }
 };
 </script>
