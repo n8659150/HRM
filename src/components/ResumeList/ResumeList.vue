@@ -1,22 +1,31 @@
 <template>
 <ul>
-  <li v-for="item in list" :key="item">
+  <li v-for="resume in resumes" :key="resume.id">
     <!-- <a href="">{{item}}</a> -->
-     <router-link :to="{ name: 'ResumeDetail', params: { id: item }}">{{item}}</router-link>
+     <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">{{resume.name}}</router-link>
   </li>
 </ul>
 </template>
 
 <script>
+import { fetchResumeList } from "@/helpers/resumeFetch";
 export default {
   name: "ResumeList",
   data() {
     return {
-      list: ['1','2','3','4','5']
+      resumes: []
     };
   },
 
   methods: {
+    async fetchResumes () {
+      let result = await fetchResumeList();
+      this.resumes = result.data
+    }
+  },
+  mounted () {
+    this.fetchResumes();
+    // console.log(this.list);
 
   }
 };

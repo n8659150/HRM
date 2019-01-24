@@ -1,23 +1,25 @@
 <template>
-<div>
-{{$route.params.id }}
-</div>
-
+  <div v-if="resume">{{ resume.name }}</div>
 </template>
 
 <script>
+import { fetchResumeById } from "@/helpers/resumeFetch";
 export default {
   name: "ResumeDetail",
   data() {
     return {
-      
+      resume: null
     };
   },
-  mounted () {
-       
+  methods: {
+    async fetchCurrentResume() {
+      let result = await fetchResumeById(this.$route.params.id);
+      this.resume = result.data;
+    }
   },
-
-  methods: {}
+  mounted() {
+    this.fetchCurrentResume();
+  }
 };
 </script>
 
