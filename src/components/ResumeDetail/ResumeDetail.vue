@@ -1,11 +1,16 @@
 <template>
-  <div v-if="resume">{{ resume.name }}</div>
+  <div>
+    <div v-if="resume">{{ resume.name }}</div>
+    <skill name="ssssss"></skill>
+  </div>
 </template>
 
 <script>
 import { fetchResumeById } from "@/helpers/resumeFetch";
+import Skill from '@/components/Skill/Skill.vue';
 export default {
   name: "ResumeDetail",
+  components: { Skill},
   data() {
     return {
       resume: null
