@@ -1,10 +1,27 @@
 <template>
-  <ul>
-    <li v-for="resume in resumes" :key="resume.id">
-      <!-- <a href="">{{item}}</a> -->
-      <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">{{resume.name}}</router-link>
-    </li>
-  </ul>
+<div>
+    <b-list-group>
+        <b-list-group-item variant="light" v-for="resume in resumes" :key="resume.id">
+            <b-container class="bv-example-row">
+                <b-row>
+                    <b-col cols="9">
+                        <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">
+                            {{resume.name}}
+                        </router-link></b-col>
+                    <b-col cols="1">
+                        <b-badge variant="info" pill>viewed</b-badge>
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col>{{resume.label}}</b-col>
+                </b-row>
+                <b-row>
+                    <b-col>{{resume.summary}}</b-col>
+                </b-row>
+            </b-container>
+        </b-list-group-item>
+    </b-list-group>
+</div>
 </template>
 
 <script>
