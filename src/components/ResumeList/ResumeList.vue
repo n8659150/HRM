@@ -1,7 +1,8 @@
 <template>
 <ul>
   <li v-for="item in list" :key="item">
-    {{item}}
+    <!-- <a href="">{{item}}</a> -->
+     <router-link :to="{ name: 'ResumeDetail', params: { id: item }}">{{item}}</router-link>
   </li>
 </ul>
 </template>
