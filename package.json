@@ -10,7 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.0.0-rc.11",
     "axios": "^0.18.0",
+    "json-server": "^0.14.2",
     "vant": "^1.5.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"

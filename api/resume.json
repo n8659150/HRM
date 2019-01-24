@@ -1,0 +1,192 @@
+{ "resumes": [
+  {
+    "id": 1,
+    "name": "Jack",
+    "label": "Programmer",
+    "email": "john@gmail.com",
+    "phone": "(912) 555-4321",
+    "city": "San Francisco",
+    "summary": "A summary of John Doe...",
+    "work": [
+      {
+        "company": "Company",
+        "position": "President",
+        "website": "http://company.com",
+        "startDate": "2013-01-01",
+        "endDate": "2014-01-01",
+        "summary": "Description...",
+        "highlights": [
+          "Started the company"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "University",
+        "area": "Software Development",
+        "studyType": "Bachelor",
+        "startDate": "2011-01-01",
+        "endDate": "2013-01-01",
+        "gpa": "4.0",
+        "courses": [
+          "DB1101 - Basic SQL"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "NodeJs",
+        "level": "Master"
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Native speaker"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Shenghua",
+    "label": "Programmer",
+    "email": "john@gmail.com",
+    "phone": "(912) 555-4321",
+    "city": "San Francisco",
+    "summary": "A summary of John Doe...",
+    "work": [
+      {
+        "company": "Company",
+        "position": "President",
+        "website": "http://company.com",
+        "startDate": "2013-01-01",
+        "endDate": "2014-01-01",
+        "summary": "Description...",
+        "highlights": [
+          "Started the company"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "University",
+        "area": "Software Development",
+        "studyType": "Bachelor",
+        "startDate": "2011-01-01",
+        "endDate": "2013-01-01",
+        "gpa": "4.0",
+        "courses": [
+          "DB1101 - Basic SQL"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "Photoshop",
+        "level": "Master"
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Native speaker"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Youran",
+    "label": "Programmer",
+    "email": "john@gmail.com",
+    "phone": "(912) 555-4321",
+    "city": "San Francisco",
+    "summary": "A summary of John Doe...",
+    "work": [
+      {
+        "company": "Company",
+        "position": "President",
+        "website": "http://company.com",
+        "startDate": "2013-01-01",
+        "endDate": "2014-01-01",
+        "summary": "Description...",
+        "highlights": [
+          "Started the company"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "University",
+        "area": "Software Development",
+        "studyType": "Bachelor",
+        "startDate": "2011-01-01",
+        "endDate": "2013-01-01",
+        "gpa": "4.0",
+        "courses": [
+          "DB1101 - Basic SQL"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "NodeJs",
+        "level": "Master"
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Native speaker"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Richard",
+    "label": "Programmer",
+    "email": "john@gmail.com",
+    "phone": "(912) 555-4321",
+    "city": "San Francisco",
+    "summary": "A summary of John Doe...",
+    "work": [
+      {
+        "company": "Company",
+        "position": "President",
+        "website": "http://company.com",
+        "startDate": "2013-01-01",
+        "endDate": "2014-01-01",
+        "summary": "Description...",
+        "highlights": [
+          "Started the company"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "University",
+        "area": "Software Development",
+        "studyType": "Bachelor",
+        "startDate": "2011-01-01",
+        "endDate": "2013-01-01",
+        "gpa": "4.0",
+        "courses": [
+          "DB1101 - Basic SQL"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "Photoshop",
+        "level": "Master"
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Native speaker"
+      }
+    ]
+  }
+]
+
+}

@@ -1,0 +1,128 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "aa",
+      "highlights": [
+        {
+          "id": 1,
+          "content": "angularJS"
+        },
+        {
+          "id": 2,
+          "content": "vue"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "content": "good at english",
+          "resumes": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "id": 2,
+          "content": "experienced",
+          "resumes": [
+            4
+          ]
+        }
+      ],
+      "stars": [
+        {
+          "id": 1,
+          "star": 1,
+          "resumes": [
+            1
+          ]
+        },
+        {
+          "id": 2,
+          "star": 2,
+          "resumes": [
+            3
+          ]
+        },
+        {
+          "id": 3,
+          "star": 3,
+          "resumes": [
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "star": 4,
+          "resumes": [
+            2
+          ]
+        },
+        {
+          "id": 5,
+          "star": 5,
+          "resumes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "bb",
+      "highlights": [
+        {
+          "id": 1,
+          "content": "angularJS"
+        },
+        {
+          "id": 2,
+          "content": "vue"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "content": "good at english",
+          "resumes": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "id": 2,
+          "content": "experienced",
+          "resumes": [
+            4
+          ]
+        }
+      ],
+      "stars": [
+        {
+          "id": 1,
+          "star": 1,
+          "resumes": [
+            1
+          ]
+        },
+        {
+          "id": 2,
+          "star": 2,
+          "resumes": [
+            3
+          ]
+        },
+        {
+          "id": 3,
+          "star": 3,
+          "resumes": [
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}

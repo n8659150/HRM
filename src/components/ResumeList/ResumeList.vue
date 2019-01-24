@@ -1,10 +1,16 @@
 <template>
+
+
+
 <ul>
   <li v-for="resume in resumes" :key="resume.id">
     <!-- <a href="">{{item}}</a> -->
-     <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">{{resume.name}}</router-link>
+     <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">{{resume}}</router-link>
   </li>
 </ul>
+
+
+
 </template>
 
 <script>
@@ -17,17 +23,17 @@ export default {
     };
   },
 
-  methods: {
+ methods: {
     async fetchResumes () {
       let result = await fetchResumeList();
       this.resumes = result.data
-    }
-  },
+    },
+},
+
   mounted () {
     this.fetchResumes();
-    // console.log(this.list);
-
   }
+
 };
 </script>
 
