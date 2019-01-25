@@ -7,7 +7,7 @@
     <Experience :resume="resume"></Experience>
     <div class="gap"></div>
     <Education :resume="resume"></Education>
-     <div class="gap"></div>
+    <div class="gap"></div>
     <RateFlag :resume="resume"></RateFlag>
     <div class="gap"></div>
     <SeeAlso :resumeList="cachedResumes"></SeeAlso>
