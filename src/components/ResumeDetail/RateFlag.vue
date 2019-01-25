@@ -4,7 +4,7 @@
 <b-container class="bv-example-row">
     <b-row>
         <b-col cols="10">
-            <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" @rating-selected="updateResumeStar"></star-rating>
+            <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" @rating-selected="updateResumeStar" v-bind:rounded-corners=true border-color="#ff1010" v-bind:border-width=1></star-rating>
         </b-col>
         <b-col cols="1">
             <b-dropdown dropup right variant="secondary" size="sm">

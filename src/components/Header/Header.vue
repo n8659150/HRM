@@ -6,6 +6,9 @@
             <span class="navbar-item">
               Header Content
             </span>
+            <b-dropdown size=sm>
+              <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected ="filterByStar"></star-rating>
+            </b-dropdown>
           </div>
         </div>
       </nav>
@@ -14,15 +17,19 @@
 
 <script>
 import FixedHeader from 'vue-fixed-header'
+import StarRating from 'vue-star-rating'
 export default {
   name: "Header",
+  components: { StarRating , FixedHeader},
   data() {
     return {
       isFixed: false
     }
   },
-  components: {
-    FixedHeader
+  methods: {
+        filterByStar() {
+
+      }
   }
 };
 </script>
