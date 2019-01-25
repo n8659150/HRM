@@ -2,12 +2,13 @@
   "resumes": [
     {
       "id": 1,
-      "name": "Jack",
+      "name": "Stephen Lee",
       "label": "Programmer",
       "email": "john@gmail.com",
       "phone": "(912) 555-4321",
       "city": "San Francisco",
-      "summary": "A summary of John Doe...",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6cm96JMnzdkSv8BgaD1608DF4CAtmURk_B0pyQbWksXEfWMmh4A",
+      "summary": "More than 8 years of Experience in Product Design. I specialized with Web and Mobile Projects.",
       "work": [
         {
           "company": "Company",
