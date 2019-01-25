@@ -8,5 +8,8 @@ function fetchResumeById(resumeId) {
     let fullUrl = `api/resumes/${resumeId}`;
     return axios.get(fullUrl)
 }
-
-export { fetchResumeList,fetchResumeById }
+function fetchStarsByResumeId(resumeId) {
+    let fullUrl = `api/resume_settings/${resumeId}`;
+    return axios.get(fullUrl)
+}
+export { fetchResumeList, fetchResumeById, fetchStarsByResumeId }

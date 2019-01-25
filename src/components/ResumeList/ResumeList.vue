@@ -9,14 +9,23 @@
                             {{resume.name}}
                         </router-link></b-col>
                     <b-col cols="1">
-                        <b-badge variant="info" pill>viewed</b-badge>
+                        <b-badge variant="info" pill> {{resume.star}} stars</b-badge>
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col>
+                        <b-img style="width:1rem; height: 70%" v-bind:src="images.mapFlag" fluid />
+                        {{resume.city}}
                     </b-col>
                 </b-row>
                 <b-row>
                     <b-col>{{resume.label}}</b-col>
                 </b-row>
                 <b-row>
-                    <b-col>{{resume.summary}}</b-col>
+                    <b-col lg="2">{{resume.summary}}</b-col>
+                </b-row>
+                <b-row>
+                    <b-col sm v-for="skill in resume.skills" cols="3"><b-badge variant="secondary">{{skill.name}}</b-badge></b-col>
                 </b-row>
             </b-container>
         </b-list-group-item>
@@ -25,13 +34,15 @@
 </template>
 
 <script>
-import { fetchResumeList } from "@/helpers/resumeFetch";
+import { fetchResumeList, fetchStarsByResumeId } from "@/helpers/dataFetch";
 import store from "@/helpers/store";
+import mapFlag from "@/assets/maps-and-flags.png";
 export default {
   name: "ResumeList",
   data() {
     return {
-      resumes: []
+      resumes: [],
+      images: { mapFlag }
     };
   },
 
@@ -40,11 +51,10 @@ export default {
       let result = await fetchResumeList();
       store.save('cachedResumes', result.data);
       this.resumes = result.data;
-
     }
   },
 
-  mounted() {
+mounted() {
     this.fetchResumes();
   }
 };

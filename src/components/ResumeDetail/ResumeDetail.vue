@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { fetchResumeById } from "@/helpers/resumeFetch";
+import { fetchResumeById } from "@/helpers/dataFetch";
 import store from "@/helpers/store";
 import BasicInfo from "@/components/basicInfo/BasicInfo.vue";
 import Skills from "@/components/Skill/Skills.vue";

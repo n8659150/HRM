@@ -7,7 +7,7 @@
   class="horizontal-scroll-list-wrap">
   <ul class="list-wrapper">
     <li v-for="resume in resumeList" :key="resume.id" class="list-item" >
-        
+
         <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">
             <div style="text-align:center;">
                 <p class="see-also-title">{{resume.name}}</p>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { fetchResumeList } from "@/helpers/resumeFetch";
+import { fetchResumeList } from "@/helpers/dataFetch";
 export default {
     name: "SeeAlso",
     computed: {
@@ -30,7 +30,7 @@ export default {
             let collections = ['primary','secondary','success','danger','warning','info','light','dark'];
             let index = Math.floor(Math.random()* 8);
             return collections[index]
-            
+
         }
     },
     data() {
