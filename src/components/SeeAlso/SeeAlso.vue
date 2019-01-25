@@ -11,7 +11,7 @@
         <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">
             <div style="text-align:center;">
                 <p class="see-also-title">{{resume.name}}</p>
-                <b-badge :variant="getBadgeColor" pill :id="resume.id">{{resume.skills[0].name}}</b-badge>
+                <b-badge :variant="getBadgeColor(resume.skills[0].name)" pill :id="resume.id">{{resume.skills[0].name}}</b-badge>
             </div>
         </router-link>
     </li>
@@ -25,18 +25,38 @@
 import { fetchResumeList } from "@/helpers/dataFetch";
 export default {
     name: "SeeAlso",
-    computed: {
-        getBadgeColor() {
-            let collections = ['primary','secondary','success','danger','warning','info','light','dark'];
-            let index = Math.floor(Math.random()* 8);
-            return collections[index]
-
-        }
-    },
     data() {
         return {
             resumes: []
         };
+    },
+    methods: {
+        getBadgeColor(keyword) {
+            let style = keyword.toLowerCase();
+            switch (style) {
+                case 'angular':
+                    return 'danger'
+                    break;
+                case 'vue':
+                    return 'success'
+                    break;
+                case 'react':
+                    return 'info'
+                    break;
+                case 'photoshop':
+                    return 'primary'
+                    break;
+                case 'NodeJs':
+                    return 'success'
+                    break;
+                case 'python':
+                    return 'dark'
+                    break;
+                default:
+                    return 'secondary'
+                    break;
+            }
+        }
     },
     props: ["resumeList"],
 
