@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <Header />
-    <router-view :key="routerKey" />
-    <TabBar />
+    <Header></Header>
+    <router-view :key="routerKey" class="header-fix" />
+  
   </div>
 </template>
 
@@ -30,5 +30,8 @@ export default {
 <style>
   body {
     color: #565555;
+  }
+  .header-fix {
+    padding-top: 56px;
   }
 </style>
