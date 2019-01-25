@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { fetchResumeList } from "@/helpers/dataFetch";
+import { fetchResumeList } from "@/helpers/data";
 export default {
     name: "SeeAlso",
     data() {

@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { fetchResumeList, fetchStarsByResumeId } from "@/helpers/dataFetch";
+import { fetchResumeList, fetchStarsByResumeId } from "@/helpers/data";
 import store from "@/helpers/store";
 import mapFlag from "@/assets/maps-and-flags.png";
 export default {

@@ -12,4 +12,8 @@ function fetchStarsByResumeId(resumeId) {
     let fullUrl = `api/resume_settings/${resumeId}`;
     return axios.get(fullUrl)
 }
-export { fetchResumeList, fetchResumeById, fetchStarsByResumeId }
+function updateResumeStar(resume, star) {
+    let fullUrl = `api/resumes/${resume.id}`;
+    return axios.put(fullUrl, resume)
+}
+export { fetchResumeList, fetchResumeById, fetchStarsByResumeId, updateResumeStar }
