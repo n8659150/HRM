@@ -10,8 +10,11 @@
 
         <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">
             <div style="text-align:center;">
-                <p class="see-also-title">{{resume.name}}</p>
-                <b-badge :variant="getBadgeColor(resume.skills[0].name)" pill :id="resume.id">{{resume.skills[0].name}}</b-badge>
+                <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">
+                    <p class="see-also-title">{{resume.name}}</p>
+                    <b-badge :variant="getBadgeColor(resume.skills[0].name)" pill :id="resume.id">{{resume.skills[0].name}}</b-badge>
+                </router-link>
+                
             </div>
         </router-link>
     </li>
