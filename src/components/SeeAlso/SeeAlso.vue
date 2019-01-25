@@ -14,12 +14,13 @@
                     <p class="see-also-title">{{resume.name}}</p>
                     <b-badge :variant="getBadgeColor(resume.skills[0].name)" pill :id="resume.id">{{resume.skills[0].name}}</b-badge>
                 </router-link>
-                
+
             </div>
         </router-link>
     </li>
   </ul>
 </cube-scroll>
+
   </div>
 
 </template>
@@ -34,6 +35,14 @@ export default {
         };
     },
     methods: {
+        scrollIntoView (evt) {
+      evt.preventDefault()
+      const href = evt.target.getAttribute('href')
+      const el = href ? document.querySelector(href) : null
+      if (el) {
+        this.$refs.content.scrollTop = el.offsetTop
+      }
+    },
         getBadgeColor(keyword) {
             let style = keyword.toLowerCase();
             switch (style) {
@@ -71,16 +80,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus">
 .horizontal-scroll-list-wrap
-  border: 1px solid rgba(0, 0, 0, 0.1)
-  border-radius: 5px
   .cube-scroll-content
     display: inline-block
   .list-wrapper
-    padding: 0 10px
+    padding: 0 0px
     white-space: nowrap
   .list-item
     display: inline-block
-    padding: 8px
+    padding: 8px;
+    width: 8rem;
+    background-color: #403c3cd6;
 .see-also-title
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    color: white;
+
+
 </style>

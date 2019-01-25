@@ -28,12 +28,6 @@ export default {
     padding: 1rem 0 0rem 0;
 }
 
-.gap {
-    height: 2px;
-    width: 200%;
-    margin-left: -100px;
-    background-color: #f4f4f4;
-}
 
 .experience-block {
     margin: 0rem 0 0rem 2rem;

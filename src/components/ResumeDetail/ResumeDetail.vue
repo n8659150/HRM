@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="container resume-detail" v-if="resume">
     <BasicInfo :resume="resume" style="margin-top: 20px;"></BasicInfo>
     <div class="gap"></div>
@@ -11,6 +12,17 @@
     <RateFlag :resume="resume"></RateFlag>
     <div class="gap"></div>
     <SeeAlso :resumeList="cachedResumes"></SeeAlso>
+=======
+  <div class="resume-detail" v-if="resume">
+    <BasicInfo :resume="resume" class="block-content"></BasicInfo>
+    <skills :skills="skills" class="block-content"></skills>
+    <Experience :resume="resume" class="block-content"></Experience>
+    <Education :resume="resume" class="block-content"></Education>
+    <div class="control-panel"><div style="position: relative">
+      <SeeAlso :resumeList="cachedResumes"></SeeAlso>
+      </div>
+    </div>
+>>>>>>> update see also
   </div>
 </template>
 
@@ -53,10 +65,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .block-content {
+    background-color: white;
+    padding: 1rem !important;
+    margin-bottom: 1rem;
+  }
   .gap {
     height: 20px;
-    width: 200%;
-    margin-left: -100px;
+    width: 100%;
     background-color: #f4f4f4;
   }
+
+  .resume-detail {
+    background-color: #f4f4f4;
+  }
+
+  .control-panel {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+
 </style>
