@@ -1,24 +1,24 @@
 <template>
-<div class="experience">
-    <div>
-        <h5>Experience</h5>
-        <div v-for="experience in resume.work">
-            <div class="experience-block">
-                <div>{{ experience.position }}</div>
-                <div>{{ experience.company }}</div>
-                <div class="date">
-                    <span>{{ experience.startDate | moment("MMMM YYYY") }}</span>
-                    <span>-</span>
-                    <span>{{ experience.endDate | moment("MMMM YYYY") }}</span>
+    <div class="experience">
+        <div>
+            <h5>Experience</h5>
+            <div v-for="(experience, $key) in resume.work" :key="$key">
+                <div class="experience-block">
+                    <div>{{ experience.position }}</div>
+                    <div>{{ experience.company }}</div>
+                    <div class="date">
+                        <span>{{ experience.startDate | moment("MMMM YYYY") }}</span>
+                        <span>-</span>
+                        <span>{{ experience.endDate | moment("MMMM YYYY") }}</span>
+                    </div>
+                    <div>
+                        <text-highlight :queries="queries">{{ experience.summary }}</text-highlight>
+                    </div>
                 </div>
-                <div>
-                    <text-highlight :queries="queries">{{ experience.summary }}</text-highlight>
-                </div>
+                <div class="gap"></div>
             </div>
-            <div class="gap"></div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -27,7 +27,17 @@ export default {
     props: ["resume"],
     data() {
         return {
-            queries:['angular','Angular','React','react','Vue','vue','JavaScript','javascript']
+            // word list for highlighting
+            queries: [
+                "angular",
+                "Angular",
+                "React",
+                "react",
+                "Vue",
+                "vue",
+                "JavaScript",
+                "javascript"
+            ]
         };
     },
     methods: {}
@@ -45,9 +55,8 @@ export default {
 }
 
 .date {
-  margin-top: 0.3rem;
-  font-size: 0.8rem;
-  color: gray;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: gray;
 }
-
 </style>

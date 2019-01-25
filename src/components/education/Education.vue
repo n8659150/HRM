@@ -1,15 +1,15 @@
 <template>
-<div class="education">
-    <div>
-        <h5>Education</h5>
-        <div v-for="education in resume.education">
-            <div>
+    <div class="education">
+        <div>
+            <h5>Education</h5>
+            <div v-for="(education, $key) in resume.education" :key="$key">
+                <div>
 
+                </div>
+                <div class="gap"></div>
             </div>
-            <div class="gap"></div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -28,16 +28,14 @@ export default {
     padding: 1rem 0 0rem 0;
 }
 
-
 .experience-block {
     margin: 0rem 0 0rem 2rem;
     padding: 1rem 0 1rem 0;
 }
 
 .date {
-  margin-top: 0.3rem;
-  font-size: 0.8rem;
-  color: gray;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: gray;
 }
-
 </style>

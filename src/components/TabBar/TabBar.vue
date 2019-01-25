@@ -1,17 +1,16 @@
 <template>
-<span>tab bar</span>
+  <span>tab bar</span>
 </template>
 
 <script>
 export default {
-  name: "TabBar",
-  data() {
-    return {
-      active: 0
-    }
-  },
-  methods: {
-  }
+    name: "TabBar",
+    data() {
+        return {
+            active: 0
+        };
+    },
+    methods: {}
 };
 </script>
 

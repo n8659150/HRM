@@ -1,37 +1,34 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <Header></Header>
-    <router-view :key="routerKey" class="header-fix" />
+    <router-view :key="routerKey" />
 
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header/Header.vue'
-import TabBar from '@/components/TabBar/TabBar.vue'
-import StarRating from 'vue-star-rating'
-
+import TabBar from "@/components/TabBar/TabBar.vue";
+import StarRating from "vue-star-rating";
 export default {
-  name: "App",
-  components:{
-    Header,
-    TabBar,
-    StarRating
-  },
-  computed: {
-    routerKey() {
-        return this.$route.name !== undefined? this.$route.name +new Date(): this.$route +new Date()
+    name: "App",
+    components: {
+        TabBar,
+        StarRating
+    },
+    computed: {
+        routerKey() {
+            return this.$route.name !== undefined
+                ? this.$route.name + new Date()
+                : this.$route + new Date();
+        }
     }
- }
 };
 </script>
 
 <style>
-  body {
+body {
     color: #565555;
-  }
-  .header-fix {
+}
+.header-fix {
     padding-top: 56px;
-  }
+}
 </style>
