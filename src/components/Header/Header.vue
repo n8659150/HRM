@@ -3,6 +3,7 @@
     <nav class="navbar" :class="{ 'is-light': isFixed, 'is-primary': !isFixed }">
         <div class="container">
           <div class="navbar-brand">
+            <span class="backTo" v-show="shouldShowBack" v-on:click="back">< back</span>
             <span class="navbar-item">
               Header Content
             </span>
@@ -11,7 +12,7 @@
             </b-dropdown>
           </div>
         </div>
-      </nav>
+    </nav>
   </fixed-header>
 </template>
 
@@ -21,9 +22,25 @@ import StarRating from 'vue-star-rating'
 export default {
   name: "Header",
   components: { StarRating , FixedHeader},
+  watch: {
+    $route(now, old) {
+      //监控路由变换，控制返回按钮的显示
+      if (now.path == "/") {
+        this.shouldShowBack = false;
+      } else {
+        this.shouldShowBack = true;
+      }
+    }
+  },
   data() {
     return {
-      isFixed: false
+      isFixed: false,
+      shouldShowBack: false
+    };
+  },
+  methods: {
+    back() {
+      this.$router.go(-1); //返回上一层
     }
   },
   methods: {

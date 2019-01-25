@@ -4,9 +4,10 @@
     <skills :skills="skills" class="block-content"></skills>
     <Experience :resume="resume" class="block-content"></Experience>
     <Education :resume="resume" class="block-content"></Education>
-    <div class="control-panel"><div style="position: relative">
-      <RateFlag :resume="resume"></RateFlag>
-      <SeeAlso :resumeList="cachedResumes"></SeeAlso>
+    <div class="control-panel">
+      <div style="position: relative">
+        <RateFlag :resume="resume"></RateFlag>
+        <SeeAlso :resumeList="cachedResumes"></SeeAlso>
       </div>
     </div>
   </div>
