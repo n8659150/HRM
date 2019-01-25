@@ -6,10 +6,10 @@ import axios from 'axios'
 import router from './router'
 import {
   /* eslint-disable no-unused-vars */
-  Style,
   Scroll,
 } from 'cube-ui'
-
+import TextHighlight from 'vue-text-highlight';
+Vue.component('text-highlight', TextHighlight);
 Vue.use(Scroll)
 Vue.config.productionTip = false
 

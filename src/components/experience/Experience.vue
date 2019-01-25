@@ -11,7 +11,9 @@
                     <span>-</span>
                     <span>{{ experience.endDate | moment("MMMM YYYY") }}</span>
                 </div>
-                <div></div>
+                <div>
+                    <text-highlight :queries="queries">{{ experience.summary }}</text-highlight>
+                </div>
             </div>
             <div class="gap"></div>
         </div>
@@ -24,7 +26,9 @@ export default {
     name: "Experience",
     props: ["resume"],
     data() {
-        return {};
+        return {
+            queries:['angular','Angular','React','react','Vue','vue','JavaScript','javascript']
+        };
     },
     methods: {}
 };

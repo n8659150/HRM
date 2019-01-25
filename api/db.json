@@ -16,7 +16,7 @@
           "website": "http://company.com",
           "startDate": "2013-01-01",
           "endDate": "2014-01-01",
-          "summary": "Description...",
+          "summary": "Vue.js has become one of the most popular JavaScript frameworks nowadays. Its application and potential draws a lot of attention and leads to long discussions. It is a JavaScript library for building web interfaces.React is a JavaScript library for creating user interfaces maintained by Facebook. It is ideal for large web applications that use data and allow changes over time without reloading the page.Angular provides dependency injection, particularly useful for assembling data services for applications, along with the use of an HTML template to compose components",
           "highlights": [
             "Started the company"
           ]
