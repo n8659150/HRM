@@ -4,9 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import router from './router'
-import Cube from 'cube-ui'
+import {
+  /* eslint-disable no-unused-vars */
+  Style,
+  Scroll,
+} from 'cube-ui'
 
-Vue.use(Cube)
+Vue.use(Scroll)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
