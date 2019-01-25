@@ -1,0 +1,49 @@
+<template>
+<div class="education">
+    <div>
+        <h5>Education</h5>
+        <div v-for="education in resume.education">
+            <div>
+
+            </div>
+            <div class="gap"></div>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+export default {
+    name: "Education",
+    props: ["resume"],
+    data() {
+        return {};
+    },
+    methods: {}
+};
+</script>
+
+<style scoped>
+.education {
+    padding: 1rem 0 0rem 0;
+}
+
+.gap {
+    height: 2px;
+    width: 200%;
+    margin-left: -100px;
+    background-color: #f4f4f4;
+}
+
+.experience-block {
+    margin: 0rem 0 0rem 2rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.date {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+</style>

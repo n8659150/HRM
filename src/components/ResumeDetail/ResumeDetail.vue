@@ -4,6 +4,10 @@
     <div class="gap"></div>
     <skills :skills="skills"></skills>
     <div class="gap"></div>
+    <Experience :resume="resume"></Experience>
+    <div class="gap"></div>
+    <Education :resume="resume"></Education>
+     <div class="gap"></div>
     <SeeAlso :resumeList="cachedResumes"></SeeAlso>
   </div>
 </template>
@@ -13,11 +17,14 @@ import { fetchResumeById } from "@/helpers/dataFetch";
 import store from "@/helpers/store";
 import BasicInfo from "@/components/basicInfo/BasicInfo.vue";
 import Skills from "@/components/Skill/Skills.vue";
+import Experience from "@/components/experience/Experience.vue";
+import Education from "@/components/education/Education.vue";
+
 import SeeAlso from "@/components/SeeAlso/SeeAlso.vue";
 
 export default {
   name: "ResumeDetail",
-  components: { Skills, SeeAlso, BasicInfo },
+  components: { Skills, SeeAlso, BasicInfo, Experience, Education },
   data() {
     return {
       resume: null,

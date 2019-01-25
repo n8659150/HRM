@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import ResumeList from '@/components/ResumeList/ResumeList.vue'
 import ResumeDetail from '@/components/ResumeDetail/ResumeDetail.vue'
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue';
+import VueMoment from 'vue-moment';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(Router);
 Vue.use(BootstrapVue);
+Vue.use(VueMoment);
 
 export default new Router({
   routes: [
