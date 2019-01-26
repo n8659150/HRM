@@ -23,6 +23,7 @@
 
 <script>
 import TextHighlight from 'vue-text-highlight';
+import store from "@/helpers/store";
 export default {
     name: "Experience",
     props: ["resume"],
@@ -31,22 +32,20 @@ export default {
     },
     data() {
         return {
-            // word list for highlighting
-            queries: [
-                // for testing
-                'a',
-                "angular",
-                "Angular",
-                "React",
-                "react",
-                "Vue",
-                "vue",
-                "JavaScript",
-                "javascript"
-            ]
+            queries: []
         };
     },
-    methods: {}
+    methods: {
+        fetchHighlights() {
+            let highlights = store.fetch("cachedHighlights");
+            highlights.forEach( highlight => {
+                this.queries.push(highlight.content);
+            })
+        }
+    },
+    mounted() {
+        this.fetchHighlights();
+    }
 };
 </script>
 
