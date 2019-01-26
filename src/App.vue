@@ -1,16 +1,18 @@
 <template>
   <div id="app">
+    <Header></Header>
     <router-view />
-
   </div>
 </template>
 
 <script>
 import StarRating from "vue-star-rating";
+import Header from "@/components/Header/Header.vue";
+
 export default {
     name: "App",
     components: {
-        StarRating
+        StarRating, Header
     },
     computed: {
         routerKey() {

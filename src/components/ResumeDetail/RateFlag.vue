@@ -13,9 +13,17 @@
         </b-col>
     </b-row>
 
-    <div style="margin-top: 1rem;">
-        <b-badge style="margin-right: 0.5rem" variant="warning" v-for="(tag, $key) in tagsAttached" :key="$key">{{tag.content}}</b-badge>
+    <div>
+        <div style="margin-top: 1rem;">
+            <b-badge style="margin-right: 0.5rem" variant="warning" v-for="tag in tagsAttached">{{tag.content}}</b-badge>
+        </div>
+        <div>
+            <span>
+                 <b-img style="width:1rem; height: 100%" v-bind:src="images.addTagIcon" fluid />
+            </span>
+        </div>
     </div>
+
 </div>
 
     </div>
@@ -25,6 +33,7 @@
 import { fetchResumeList, updateResume, fetchAllTags } from "@/helpers/data";
 import StarRating from "vue-star-rating";
 import store from "@/helpers/store";
+
 export default {
     name: "RateFlag",
     components: { StarRating },

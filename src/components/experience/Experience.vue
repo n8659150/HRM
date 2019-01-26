@@ -5,13 +5,13 @@
             <div v-for="(experience, $key) in resume.work" :key="$key">
                 <div class="experience-block">
                     <div>{{ experience.position }}</div>
-                    <div>{{ experience.company }}</div>
+                    <div>{{ experience.company[0] }}</div>
                     <div class="date">
                         <span>{{ experience.startDate | moment("MMMM YYYY") }}</span>
                         <span>-</span>
                         <span>{{ experience.endDate | moment("MMMM YYYY") }}</span>
                     </div>
-                    <div>
+                    <div class="summary">
                         <text-highlight :queries="queries">{{ experience.summary }}</text-highlight>
                     </div>
                 </div>

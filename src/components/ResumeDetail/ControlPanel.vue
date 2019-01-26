@@ -1,7 +1,7 @@
 <template>
 <div class="control-panel">
     <RateFlag :resume="resume"></RateFlag>
-    <!--<SeeAlso :resumeList="resumeList"></SeeAlso>-->
+    <SeeAlso :resumeList="resumeList"></SeeAlso>
 </div>
 </template>
 

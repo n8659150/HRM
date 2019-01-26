@@ -9,6 +9,13 @@ import {
   Scroll,
 } from 'cube-ui'
 import TextHighlight from 'vue-text-highlight';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCoffee, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faCoffee)
+library.add(faArrowLeft)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('text-highlight', TextHighlight);
 Vue.use(Scroll)
 Vue.config.productionTip = false

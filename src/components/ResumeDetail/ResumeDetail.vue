@@ -1,23 +1,10 @@
 <template>
   <div class="resume-detail" v-if="resume">
-    <fixed-header :fixed.sync="isFixed" :threshold="1">
-    <nav class="navbar" :class="{ 'is-light': isFixed, 'is-primary': !isFixed }">
-        <div class="container">
-          <div class="navbar-brand">
-            <router-link :to="{ name: 'ResumeList' }"> < Back </router-link>
-            <span class="navbar-item">
-              Header Content
-            </span>
-          </div>
-        </div>
-    </nav>
-  </fixed-header>
     <BasicInfo :resume="resume" class="block-content"></BasicInfo>
     <skills :skills="skills" class="block-content"></skills>
     <Experience :resume="resume" class="block-content"></Experience>
     <Education :resume="resume" class="block-content"></Education>
     <ControlPanel :resume="resume" :resumeList="cachedResumes" ></ControlPanel>
-
   </div>
 </template>
 
@@ -46,7 +33,7 @@ export default {
     async fetchCurrentResume(id) {
       let result = await fetchResumeById(id);
       this.resume = result.data;
-    },
+    }
   },
   mounted() {
     this.fetchCurrentResume(this.$route.params.id);
@@ -77,6 +64,7 @@ export default {
 
   .resume-detail {
     background-color: #f4f4f4;
+    padding-top: 2rem;
   }
 
 html,
@@ -93,11 +81,8 @@ body,
   transition: background 0.15s ease-out;
   background: transparent;
   z-index: 10000;
+  background-color: #f4f4f4;
+  height: 2rem;
 }
-.navbar.is-primary {
-  background: green;
-}
-.navbar.is-light {
-  background: blue;
-}
+
 </style>

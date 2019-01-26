@@ -1,23 +1,13 @@
 <template>
     <div>
-        <fixed-header :fixed.sync="isFixed" :threshold="1">
-            <nav class="navbar" :class="{ 'is-light': isFixed, 'is-primary': !isFixed }">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <span class="navbar-item">
-                            Header Content
-                        </span>
-                        <b-dropdown size=sm>
-                            <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
-                            <b-list-group style="padding-top:56px" v-for="(tag, $key) in tags" :key="$key" v-on:click="filtByTag(tag)">
-                                {{tag.content}}
-                            </b-list-group>
-                            <b-button v-on:click="clearFilters">clear</b-button>
-                        </b-dropdown>
-                    </div>
-                </div>
-            </nav>
-        </fixed-header>
+        <b-dropdown size=sm>
+            <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
+            <b-list-group style="padding-top:56px" v-for="(tag, $key) in tags" :key="$key" v-on:click="filtByTag(tag)">
+                {{tag.content}}
+            </b-list-group>
+            <b-button v-on:click="clearFilters">clear</b-button>
+        </b-dropdown>
+
         <b-list-group style="padding-top:56px">
             <b-list-group-item variant="light" v-for="resume in resumes" :key="resume.id">
                 <b-container class="bv-example-row">
