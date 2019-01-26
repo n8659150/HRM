@@ -1,30 +1,27 @@
 <template>
     <div class="rate-flag">
 
-<div class="bv-example-row" style="background-color: #5c5959;">
-    <b-row>
-        <b-col cols="10">
-            <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" v-bind:show-rating=false @rating-selected="updateResumeStar" v-bind:rounded-corners=true border-color="#ff1010" v-bind:border-width=1></star-rating>
-        </b-col>
-        <b-col cols="1">
-            <b-dropdown dropup right variant="secondary" size="sm">
-                <b-dropdown-item v-for="(tag, $key) in tags" :key="$key" v-on:click="addTag(tag)">{{tag.content}}</b-dropdown-item>
-            </b-dropdown>
-        </b-col>
-    </b-row>
+        <div class="bv-example-row" style="background-color: #5c5959;">
+            <b-row>
+                <b-col cols="10">
+                    <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" v-bind:show-rating=false @rating-selected="updateResumeStar" v-bind:rounded-corners=true border-color="#ff1010" v-bind:border-width=1></star-rating>
+                </b-col>
+                <b-col cols="1">
+                    <b-dropdown dropup right variant="secondary" size="sm">
+                        <b-dropdown-item v-for="(tag, $key) in tags" :key="$key" v-on:click="addTag(tag)">{{tag.content}}</b-dropdown-item>
+                    </b-dropdown>
+                </b-col>
+            </b-row>
 
-    <div>
-        <div style="margin-top: 1rem;">
-            <b-badge style="margin-right: 0.5rem" variant="warning" v-for="tag in tagsAttached">{{tag.content}}</b-badge>
-        </div>
-        <div>
-            <span>
-                 <b-img style="width:1rem; height: 100%" v-bind:src="images.addTagIcon" fluid />
-            </span>
-        </div>
-    </div>
+            <div>
+                <div style="margin-top: 1rem;">
+                    <b-badge style="margin-right: 0.5rem" variant="warning" v-for="(tag, $key) in tagsAttached" :key="$key">{{tag.content}}</b-badge>
+                </div>
+                <div>
+                </div>
+            </div>
 
-</div>
+        </div>
 
     </div>
 </template>
@@ -89,9 +86,9 @@ export default {
 <style>
 .rate-flag {
     padding: 0.5rem;
-  }
+}
 
 .bv-example-row {
-    color: white;
+    /* color: white; */
 }
 </style>

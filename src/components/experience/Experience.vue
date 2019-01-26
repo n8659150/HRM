@@ -22,13 +22,19 @@
 </template>
 
 <script>
+import TextHighlight from 'vue-text-highlight';
 export default {
     name: "Experience",
     props: ["resume"],
+    components: {
+        TextHighlight
+    },
     data() {
         return {
             // word list for highlighting
             queries: [
+                // for testing
+                'a',
                 "angular",
                 "Angular",
                 "React",

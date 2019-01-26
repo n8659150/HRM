@@ -5,7 +5,7 @@
                 <div class="navbar-brand">
                     <b-dropdown size=sm>
                         <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
-                        <b-list-group style="padding-top:5px" v-for="tag in tags" v-on:click="filtByTag(tag)">
+                        <b-list-group style="padding-top:5px" v-for="(tag, $key) in tags" v-on:click="filtByTag(tag)" :key="$key">
                             {{tag.content}}
                         </b-list-group>
                         <b-button v-on:click="clearFilters">clear</b-button>
@@ -16,7 +16,7 @@
                             <b-btn size=sm v-on:click="addNewTag(newTagContent)">S</b-btn>
                             <b-btn size=sm v-on:click="clearNewTag()">C</b-btn>
                         </b-button-toolbar>
-                        <b-list-group v-for="tag in tags">
+                        <b-list-group v-for="(tag, $key) in tags" :key="$key">
                             <b-button-toolbar>
                                 {{tag.content}}
                                 <b-btn size=sm v-on:click="deleteTag(tag.id)">x</b-btn>
@@ -27,7 +27,7 @@
                             <b-btn size=sm v-on:click="addNewHighlight(newHighlight)">S</b-btn>
                             <b-btn size=sm v-on:click="clearNewHighlight()">C</b-btn>
                         </b-button-toolbar>
-                        <b-list-group v-for="highlight in highlights">
+                        <b-list-group v-for="(highlight, $key) in highlights" :key="$key">
                             <b-button-toolbar>
                                 {{highlight.content}}
                                 <b-btn size=sm v-on:click="deleteHighlight(highlight.id)">x</b-btn>

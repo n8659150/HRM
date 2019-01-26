@@ -3,7 +3,8 @@
     <nav class="navbar">
         <div class="navbar-brand">
             <span class="navbar-item">
-              <span @click="back()"><font-awesome-icon icon="arrow-left" /></span>
+              <!-- <span @click="back()"><font-awesome-icon icon="arrow-left" /></span> -->
+              <i  @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
             </span>
           </div>
       </nav>
