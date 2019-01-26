@@ -91,12 +91,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 .rate-flag {
     padding: 0.5rem;
-}
-
-.bv-example-row {
-    /* color: white; */
-}
+    color: white;
+  }
 </style>

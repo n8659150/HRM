@@ -37,38 +37,52 @@
                 </div>
             </div>
         </nav>
-        <b-list-group style="padding-top:56px">
-            <b-list-group-item variant="light" v-for="resume in resumes" :key="resume.id">
-                <b-container class="bv-example-row">
-                    <b-row>
-                        <b-col cols="9">
-                            <router-link :to="{ name: 'ResumeDetail', params: { id: resume.id }}">
-                                {{resume.name}}
-                            </router-link>
-                        </b-col>
-                        <b-col cols="1">
-                            <b-badge variant="info" pill> {{resume.star}} stars</b-badge>
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <b-img style="width:1rem; height: 70%" v-bind:src="images.mapFlag" fluid /> {{resume.city}}
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>{{resume.label}}</b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col lg="2">{{resume.summary}}</b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col sm v-for="(skill, $key) in resume.skills" :key="$key" cols="3">
-                            <b-badge variant="secondary">{{skill.name}}</b-badge>
-                        </b-col>
-                    </b-row>
-                </b-container>
-            </b-list-group-item>
-        </b-list-group>
+
+        <div>
+            <b-dropdown size=sm>
+                <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
+                <b-list-group style="padding-top:56px" v-for="(tag, $key) in tags" :key="$key" v-on:click="filtByTag(tag)">
+                    {{tag.content}}
+                </b-list-group>
+                <b-button v-on:click="clearFilters">clear</b-button>
+            </b-dropdown>
+        </div>
+
+        <div>
+            <div v-for="resume in resumes" :key="resume.id">
+                <div class="resume" @click="goResume(resume.id)">
+                    <div style="float: right">
+                        <star-rating v-bind:max-rating="5"
+                                v-model="resume.star"
+                                v-bind:star-size="15"
+                                v-bind:show-rating=false>
+                        </star-rating>
+                    </div>
+
+                    <div class="name">{{resume.name}}</div>
+                    <div class="position" style="color: gray">{{resume.work[0].position}}</div>
+                    <div>
+                        <span class="location-icon" style="font-size: 1.2rem;"><font-awesome-icon icon="map-marker-alt" /></span>
+                        <span class="location" style="font-size: 1rem; color: gray">{{resume.city}}</span>
+                    </div>
+                    <div style="margin: 0.5rem 0" class="inline-gap"></div>
+                    <div>
+                        <span style="margin-right: 0.5rem;" sm v-for="(skill, $key) in resume.skills" :key="$key">
+                            <b-badge variant="info">{{skill.name}}</b-badge>
+                        </span>
+                    </div>
+
+                    <!--<div>{{resume.star}}</div>
+
+                    {{resume.label}}
+
+                    <b-col lg="2">{{resume.summary}}</b-col>-->
+                </div>
+
+                <div class="gap"></div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -155,6 +169,10 @@ export default {
         clearNewHighlight() {
             this.newHighlight = "";
         },
+
+        goResume(resumeId) {
+            this.$router.push({ path: `/resume/${resumeId}` })
+        }
     },
 
     async mounted() {
@@ -188,4 +206,33 @@ body,
 .navbar.is-light {
     background: blue;
 }
+
+.resume {
+    padding: 1rem 2rem;
+}
+
+.resume .name {
+    font-size: 1.2rem;
+}
+
+.inline-gap {
+    height: 1px;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+.gap {
+    height: 5px;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+.limit-3-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
 </style>
