@@ -8,13 +8,13 @@
         </b-col>
         <b-col cols="1">
             <b-dropdown dropup right variant="secondary" size="sm">
-                <b-dropdown-item v-for="tag in tags" v-on:click="addTag(tag)">{{tag.content}}</b-dropdown-item>
+                <b-dropdown-item v-for="(tag, $key) in tags" :key="$key" v-on:click="addTag(tag)">{{tag.content}}</b-dropdown-item>
             </b-dropdown>
         </b-col>
     </b-row>
 
     <div style="margin-top: 1rem;">
-        <b-badge style="margin-right: 0.5rem" variant="warning" v-for="tag in tagsAttached">{{tag.content}}</b-badge>
+        <b-badge style="margin-right: 0.5rem" variant="warning" v-for="(tag, $key) in tagsAttached" :key="$key">{{tag.content}}</b-badge>
     </div>
 </div>
 

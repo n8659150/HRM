@@ -6,12 +6,10 @@
 </template>
 
 <script>
-import TabBar from "@/components/TabBar/TabBar.vue";
 import StarRating from "vue-star-rating";
 export default {
     name: "App",
     components: {
-        TabBar,
         StarRating
     },
     computed: {

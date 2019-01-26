@@ -4,7 +4,7 @@
     <nav class="navbar" :class="{ 'is-light': isFixed, 'is-primary': !isFixed }">
         <div class="container">
           <div class="navbar-brand">
-            <span class="backTo" @click="back()">< Back</span>
+            <router-link :to="{ name: 'ResumeList' }"> < Back </router-link>
             <span class="navbar-item">
               Header Content
             </span>

@@ -8,15 +8,15 @@ module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
     proxyTable: {
-      '/api': {
-        target: 'http://10.63.88.53:3000/',
-        changeOrigin: true,
-        pathRewrite: {
-          '/api': '/'
-        }
-      },
+      // '/api': {
+      //   target: 'http://localhost:3000/',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '/api': '/'
+      //   }
+      // },
     },
 
     // Various Dev Server settings
@@ -50,7 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
 
     /**
      * Source Maps

@@ -1,28 +1,28 @@
 import axios from 'axios'
 axios.defaults.withCredentials = true;
-
+const HOST = `http://localhost:3000`;
 function fetchResumeList() {
-    let fullUrl = `api/resumes`;
+    let fullUrl = `${HOST}/resumes`;
     return axios.get(fullUrl)
 }
 
 function fetchResumeById(resumeId) {
-    let fullUrl = `api/resumes/${resumeId}`;
+    let fullUrl = `${HOST}/resumes/${resumeId}`;
     return axios.get(fullUrl)
 }
 
 function fetchStarsByResumeId(resumeId) {
-    let fullUrl = `api/resume_settings/${resumeId}`;
+    let fullUrl = `${HOST}/resume_settings/${resumeId}`;
     return axios.get(fullUrl)
 }
 
 function updateResume(resume) {
-    let fullUrl = `api/resumes/${resume.id}`;
+    let fullUrl = `${HOST}/resumes/${resume.id}`;
     return axios.put(fullUrl, resume)
 }
 
 function fetchAllTags() {
-    let fullUrl = `api/tags`;
+    let fullUrl = `${HOST}/tags`;
     return axios.get(fullUrl);
 }
 export {
