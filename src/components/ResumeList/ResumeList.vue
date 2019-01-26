@@ -1,16 +1,32 @@
 <template>
-    <div>
-        <div>
-            <b-dropdown size=sm>
-                <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
-                <b-list-group style="padding-top:56px" v-for="(tag, $key) in tags" :key="$key" v-on:click="filtByTag(tag)">
-                    {{tag.content}}
-                </b-list-group>
-                <b-button v-on:click="clearFilters">clear</b-button>
-            </b-dropdown>
+    <div class="resume-list">
+        <div class="filter">
+            <h5>Filter by</h5>
+            <div>
+            <div style="margin: 0 2rem 0 0; font-size: 0.9rem; color: gray"><span>Star: </span></div>
+            <div style="">
+                <star-rating v-bind:max-rating="5" v-bind:star-size="25"
+                        v-bind:show-rating=false
+                        v-bind:padding="8"
+                        @rating-selected="filtByStar">
+                </star-rating>
+            </div>
+            </div>
+
+            <div style="margin-top: 0.5rem;">
+                <div style="margin: 0 2rem 0 0; font-size: 0.9rem; color: gray"><span>Tag: </span></div>
+                <div style=""><b-form-select v-model="tagFilter" size="sm" v-on:change="filtByTag(tagFilter)">
+                    <option v-bind:value="tag.id" v-for="tag in tags">{{ tag.content }}</option>
+                </b-form-select>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <b-button size="sm" v-on:click="clearFilters">clear</b-button>
+            </div>
         </div>
 
-        <TagManager></TagManager>
+        <!--<TagManager></TagManager>-->
 
         <div>
             <div v-for="resume in resumes" :key="resume.id">
@@ -26,7 +42,8 @@
                     <div class="name">{{resume.name}}</div>
                     <div class="position" style="color: gray">{{resume.work[0].position}}</div>
                     <div>
-                        <span class="location-icon" style="font-size: 1.2rem;"><font-awesome-icon icon="map-marker-alt" /></span>
+                        <span class="location-icon" style="font-size: 1.2rem;">
+                            <i class="fa fa-map-marker-alt" aria-hidden="true"></i></span>
                         <span class="location" style="font-size: 1rem; color: gray">{{resume.city}}</span>
                     </div>
                     <div style="margin: 0.5rem 0" class="inline-gap"></div>
@@ -49,7 +66,6 @@ import FixedHeader from "vue-fixed-header";
 import StarRating from "vue-star-rating";
 import { fetchResumeList, fetchStarsByResumeId, fetchAllTags, addNewTag, deleteTag, addNewHighlight, deleteHighlight, fetchAllHighlights } from "@/helpers/data";
 import store from "@/helpers/store";
-import mapFlag from "@/assets/maps-and-flags.png";
 export default {
     name: "ResumeList",
     components: {
@@ -59,12 +75,12 @@ export default {
     data() {
         return {
             resumes: [],
-            images: { mapFlag },
             isFixed: false,
             tags: [],
             newTagContent: "",
             newHighlight: "",
-            highlights: []
+            highlights: [],
+            tagFilter: 0
         };
     },
 
@@ -90,11 +106,11 @@ export default {
             store.save("cachedHighlights", result.data);
             this.highlights = result.data;
         },
-        async filtByTag(tag) {
+        async filtByTag(tagId) {
             this.resumes = store.fetch("cachedResumes");
             this.resumes = this.resumes.filter( resume => {
                 let found = resume.tags.find( tagID => {
-                    return tagID == tag.id;
+                    return tagID == tagId;
                 })
                 return found ? true : false;
             });
@@ -169,6 +185,11 @@ body,
     padding: 1rem 2rem;
 }
 
+.filter {
+    background-color: #f4f4f4;
+    padding: 1rem 2rem;
+}
+
 .resume .name {
     font-size: 1.2rem;
 }
@@ -191,6 +212,10 @@ body,
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+.resume-list {
+    padding-top: 2.5rem;
 }
 
 </style>

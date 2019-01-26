@@ -2,13 +2,21 @@
   <fixed-header :threshold="1">
     <nav class="navbar">
         <div class="navbar-brand">
-            <span class="navbar-item">
-              <!-- <span @click="back()"><font-awesome-icon icon="arrow-left" /></span> -->
-              <i  @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
-            </span>
-          </div>
+          <span class="navbar-item">
+            <i  @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
+          </span>
+        </div>
+
+        <div class="navbar-brand">
+          <span class="navbar-item">
+            <i class="fa fa-sliders" aria-hidden="true"></i>
+          </span>
+        </div>
+
       </nav>
   </fixed-header>
+
+
 </template>
 
 <script>
