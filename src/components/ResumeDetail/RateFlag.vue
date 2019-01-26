@@ -23,6 +23,7 @@
 <script>
 import { fetchResumeList, updateResume, fetchAllTags } from "@/helpers/data";
 import StarRating from "vue-star-rating";
+import store from "@/helpers/store";
 export default {
     name: "RateFlag",
     components: { StarRating },
@@ -34,8 +35,7 @@ export default {
             await updateResume(this.resume);
         },
         async getAllTags() {
-            let result = await fetchAllTags();
-            this.tags = result.data;
+            this.tags = store.fetch("cachedTags");
         },
         async addTag(tag) {
             let tagID = this.resume.tags.find(tagID => {

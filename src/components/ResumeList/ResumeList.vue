@@ -8,7 +8,10 @@
                             Header Content
                         </span>
                         <b-dropdown size=sm>
-                            <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filterByStar"></star-rating>
+                            <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
+                            <b-list-group style="padding-top:56px" v-for="tag in tags" v-on:click="filtByTag(tag)">
+                                {{tag.content}}
+                            </b-list-group>
                         </b-dropdown>
                     </div>
                 </div>
@@ -52,7 +55,7 @@
 <script>
 import FixedHeader from "vue-fixed-header";
 import StarRating from "vue-star-rating";
-import { fetchResumeList, fetchStarsByResumeId } from "@/helpers/data";
+import { fetchResumeList, fetchStarsByResumeId, fetchAllTags } from "@/helpers/data";
 import store from "@/helpers/store";
 import mapFlag from "@/assets/maps-and-flags.png";
 export default {
@@ -65,7 +68,8 @@ export default {
         return {
             resumes: [],
             images: { mapFlag },
-            isFixed: false
+            isFixed: false,
+            tags: []
         };
     },
 
@@ -75,11 +79,31 @@ export default {
             store.save("cachedResumes", result.data);
             this.resumes = result.data;
         },
-        filterByStar() {}
+        async filtByStar(star) {
+            this.resumes = store.fetch("cachedResumes");
+            this.resumes = this.resumes.filter( resume => {
+                return resume.star == star;
+            });
+        },
+        async getAllTags() {
+            let result = await fetchAllTags();
+            store.save("cachedTags", result.data);
+            this.tags = result.data;
+        },
+        async filtByTag(tag) {
+            this.resumes = store.fetch("cachedResumes");
+            this.resumes = this.resumes.filter( resume => {
+                let found = resume.tags.find( tagID => {
+                    return tagID == tag.id;
+                })
+                return found ? true : false;
+            });
+        }
     },
 
-    mounted() {
-        this.fetchResumes();
+    async mounted() {
+        await this.fetchResumes();
+        await this.getAllTags();
     }
 };
 </script>
