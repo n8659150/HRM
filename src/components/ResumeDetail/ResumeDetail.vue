@@ -16,12 +16,8 @@
     <skills :skills="skills" class="block-content"></skills>
     <Experience :resume="resume" class="block-content"></Experience>
     <Education :resume="resume" class="block-content"></Education>
-    <div class="control-panel">
-      <div style="position: relative">
-        <RateFlag :resume="resume"></RateFlag>
-        <SeeAlso :resumeList="cachedResumes"></SeeAlso>
-      </div>
-    </div>
+    <ControlPanel :resume="resume" :resumeList="cachedResumes" ></ControlPanel>
+
   </div>
 </template>
 
@@ -33,12 +29,11 @@ import BasicInfo from "@/components/basicInfo/BasicInfo.vue";
 import Skills from "@/components/Skill/Skills.vue";
 import Experience from "@/components/experience/Experience.vue";
 import Education from "@/components/education/Education.vue";
-import SeeAlso from "@/components/SeeAlso/SeeAlso.vue";
-import RateFlag from "@/components/ResumeDetail/RateFlag.vue";
+import ControlPanel from "@/components/ResumeDetail/ControlPanel.vue";
 
 export default {
   name: "ResumeDetail",
-  components: { FixedHeader, Skills, SeeAlso, BasicInfo, Experience, Education, RateFlag},
+  components: { FixedHeader, Skills, BasicInfo, Experience, Education, ControlPanel},
   data() {
     return {
       resume: null,
@@ -81,12 +76,6 @@ export default {
 
   .resume-detail {
     background-color: #f4f4f4;
-  }
-
-  .control-panel {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
   }
 
 html,

@@ -42,26 +42,26 @@ export default {
         getBadgeColor(keyword) {
             let style = keyword.toLowerCase();
             switch (style) {
-                case "angular":
-                    return "danger";
+                case 'angular':
+                    return 'info'
                     break;
-                case "vue":
-                    return "success";
+                case 'vue':
+                    return 'info'
                     break;
                 case "react":
                     return "info";
                     break;
-                case "photoshop":
-                    return "primary";
+                case 'photoshop':
+                    return 'info'
                     break;
-                case "NodeJs":
-                    return "success";
+                case 'NodeJs':
+                    return 'info'
                     break;
-                case "python":
-                    return "dark";
+                case 'python':
+                    return 'info'
                     break;
                 default:
-                    return "secondary";
+                    return 'info'
                     break;
             }
         }
@@ -90,10 +90,11 @@ export default {
         width: 8rem;
         background-color: #403c3cd6;
     }
+
+    .see-also-title {
+        margin-bottom: 8px;
+        color: white;
+    }
 }
 
-.see-also-title {
-    margin-bottom: 8px;
-    color: white;
-}
 </style>

@@ -59,4 +59,23 @@ export default {
     font-size: 0.8rem;
     color: gray;
 }
+
+.gap {
+    height: 2px;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+.summary {
+    padding-top: 0.9em;
+    font-size: 0.9rem;
+    text-align: unset;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
+
 </style>
