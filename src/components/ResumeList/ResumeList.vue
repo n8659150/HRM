@@ -12,6 +12,7 @@
                             <b-list-group style="padding-top:56px" v-for="tag in tags" v-on:click="filtByTag(tag)">
                                 {{tag.content}}
                             </b-list-group>
+                            <b-button v-on:click="clearFilters">clear</b-button>
                         </b-dropdown>
                     </div>
                 </div>
@@ -98,6 +99,9 @@ export default {
                 })
                 return found ? true : false;
             });
+        },
+        clearFilters() {
+           this.resumes = store.fetch("cachedResumes");
         }
     },
 
