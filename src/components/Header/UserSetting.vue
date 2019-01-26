@@ -12,7 +12,7 @@
     <div class="tag-list">
         <span style="margin-right: 0.5rem" v-for="tag in tags">
 
-        <b-badge variant="info" size="default" >
+        <b-badge variant="warning" size="default" >
           <span style="margin-right: 0.3rem"><i class="fa fa-tag" aria-hidden="true"></i></span>{{tag.content}}
           <span class="inline-block" style="margin-left: 0.5rem;" v-on:click="deleteTag(tag.id)">
             <i class="fa fa-remove" aria-hidden="true"></i>
@@ -34,7 +34,7 @@
     <div class="tag-list">
         <span style="margin-right: 0.5rem" v-for="highlight in highlights">
 
-        <b-badge variant="info" size="default" >
+        <b-badge variant="warning" size="default" >
           {{ highlight.content }}
           <span class="inline-block" style="margin-left: 0.5rem;" v-on:click="deleteHighlight(highlight.id)">
             <i class="fa fa-remove" aria-hidden="true"></i>
@@ -114,7 +114,6 @@ export default {
 
     beforeCreate() {
         this.$nextTick(function () {
-            console.log("sssss");
             this.getAllTags();
             this.getAllHighlights();
         })
@@ -137,6 +136,10 @@ export default {
   margin: 0 0 1rem 0;
 }
 .input {}
+
+.badge-warning {
+    color: #565555;
+}
 
 .inline-block {
     display: inline-block;

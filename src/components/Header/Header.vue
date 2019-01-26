@@ -1,5 +1,5 @@
 <template>
-  <fixed-header :threshold="1">
+  <div><fixed-header :threshold="1">
     <nav class="navbar">
         <div class="navbar-brand">
           <span class="navbar-item" v-if="showBackButton">
@@ -17,6 +17,7 @@
     </fixed-header>
 
     <user-setting v-show="showUserSetting"></user-setting>
+    </div>
 </div>
 </template>
 
@@ -27,7 +28,7 @@ import UserSetting from "@/components/Header/UserSetting.vue";
 
 export default {
   name: "Header",
-  components: { StarRating , FixedHeader},
+  components: { StarRating , FixedHeader, UserSetting},
   data() {
     return {
       resumes: [],
@@ -43,7 +44,9 @@ export default {
     back() {
       this.$router.push('/');
     }
+  }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
