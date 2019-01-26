@@ -126,12 +126,13 @@
           "fluency": "Native speaker"
         }
       ],
-      "star": 5,
+      "star": 2,
       "tags": [
         3,
         4,
         2,
-        1
+        1,
+        6
       ]
     },
     {
@@ -8130,13 +8131,6 @@
     {
       "id": 2,
       "content": "experienced",
-      "resumes": [
-        4
-      ]
-    },
-    {
-      "id": 3,
-      "content": "doubted",
       "resumes": [
         4
       ]

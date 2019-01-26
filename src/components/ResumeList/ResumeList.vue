@@ -1,13 +1,42 @@
 <template>
     <div>
-        <b-dropdown size=sm>
-            <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
-            <b-list-group style="padding-top:56px" v-for="(tag, $key) in tags" :key="$key" v-on:click="filtByTag(tag)">
-                {{tag.content}}
-            </b-list-group>
-            <b-button v-on:click="clearFilters">clear</b-button>
-        </b-dropdown>
-
+        <nav class="navbar" :class="{ 'is-light': isFixed, 'is-primary': !isFixed }">
+            <div class="container">
+                <div class="navbar-brand">
+                    <b-dropdown size=sm>
+                        <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected="filtByStar"></star-rating>
+                        <b-list-group style="padding-top:5px" v-for="tag in tags" v-on:click="filtByTag(tag)">
+                            {{tag.content}}
+                        </b-list-group>
+                        <b-button v-on:click="clearFilters">clear</b-button>
+                    </b-dropdown>
+                    <b-dropdown size=sm>
+                        <b-button-toolbar>
+                            <b-form-input style="width: 60%" placeholder="input your tag here" v-model="newTagContent"></b-form-input>
+                            <b-btn size=sm v-on:click="addNewTag(newTagContent)">S</b-btn>
+                            <b-btn size=sm v-on:click="clearNewTag()">C</b-btn>
+                        </b-button-toolbar>
+                        <b-list-group v-for="tag in tags">
+                            <b-button-toolbar>
+                                {{tag.content}}
+                                <b-btn size=sm v-on:click="deleteTag(tag.id)">x</b-btn>
+                            </b-button-toolbar>
+                        </b-list-group>
+                        <b-button-toolbar>
+                            <b-form-input style="width: 60%" placeholder="input your highlights here" v-model="newHighlight"></b-form-input>
+                            <b-btn size=sm v-on:click="addNewHighlight(newHighlight)">S</b-btn>
+                            <b-btn size=sm v-on:click="clearNewHighlight()">C</b-btn>
+                        </b-button-toolbar>
+                        <b-list-group v-for="highlight in highlights">
+                            <b-button-toolbar>
+                                {{highlight.content}}
+                                <b-btn size=sm v-on:click="deleteHighlight(highlight.id)">x</b-btn>
+                            </b-button-toolbar>
+                        </b-list-group>
+                    </b-dropdown>
+                </div>
+            </div>
+        </nav>
         <b-list-group style="padding-top:56px">
             <b-list-group-item variant="light" v-for="resume in resumes" :key="resume.id">
                 <b-container class="bv-example-row">
@@ -46,7 +75,7 @@
 <script>
 import FixedHeader from "vue-fixed-header";
 import StarRating from "vue-star-rating";
-import { fetchResumeList, fetchStarsByResumeId, fetchAllTags } from "@/helpers/data";
+import { fetchResumeList, fetchStarsByResumeId, fetchAllTags, addNewTag, deleteTag, addNewHighlight, deleteHighlight, fetchAllHighlights } from "@/helpers/data";
 import store from "@/helpers/store";
 import mapFlag from "@/assets/maps-and-flags.png";
 export default {
@@ -60,7 +89,10 @@ export default {
             resumes: [],
             images: { mapFlag },
             isFixed: false,
-            tags: []
+            tags: [],
+            newTagContent: "",
+            newHighlight: "",
+            highlights: []
         };
     },
 
@@ -81,6 +113,11 @@ export default {
             store.save("cachedTags", result.data);
             this.tags = result.data;
         },
+        async getAllHighlights() {
+            let result = await fetchAllHighlights();
+            store.save("cachedHighlights", result.data);
+            this.highlights = result.data;
+        },
         async filtByTag(tag) {
             this.resumes = store.fetch("cachedResumes");
             this.resumes = this.resumes.filter( resume => {
@@ -92,12 +129,38 @@ export default {
         },
         clearFilters() {
            this.resumes = store.fetch("cachedResumes");
-        }
+        },
+        clearNewTag() {
+            this.newTagContent = "";
+        },
+        async addNewTag() {
+            await addNewTag(this.newTagContent);
+            await this.getAllTags();
+            this.newTagContent = "";
+        },
+        async deleteTag(tagid) {
+            // TODO: Delete data in resume accordingly
+            await deleteTag(tagid);
+            await this.getAllTags();
+        },
+        async addNewHighlight() {
+            await addNewHighlight(this.newHighlight);
+            await this.getAllHighlights();
+            this.newHighlight = "";
+        },
+        async deleteHighlight(highlightid) {
+            await deleteHighlight(highlightid);
+            await this.getAllHighlights();
+        },
+        clearNewHighlight() {
+            this.newHighlight = "";
+        },
     },
 
     async mounted() {
         await this.fetchResumes();
         await this.getAllTags();
+        await this.getAllHighlights();
     }
 };
 </script>
