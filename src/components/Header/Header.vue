@@ -2,8 +2,8 @@
   <fixed-header :threshold="1">
     <nav class="navbar">
         <div class="navbar-brand">
-          <span class="navbar-item">
-            <i  @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
+          <span class="navbar-item" v-if="showBackButton">
+            <i @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
           </span>
         </div>
 
@@ -27,12 +27,17 @@ export default {
   components: { StarRating , FixedHeader},
   data() {
     return {
-      resumes: [],
+      resumes: []
+    }
+  },
+  computed: {
+    showBackButton() {
+      return (this.$route.params.id) ? true : false;
     }
   },
   methods: {
     back() {
-      this.$router.go(-1); //返回上一层
+      this.$router.push('/');
     }
   }
 };
@@ -56,10 +61,6 @@ body,
   z-index: 10000;
   height: 2.5rem;
   background-color: #f4f4f4;
-}
-
-.header {
-
 }
 
 </style>

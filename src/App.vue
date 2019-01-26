@@ -13,13 +13,6 @@ export default {
     name: "App",
     components: {
         StarRating, Header
-    },
-    computed: {
-        routerKey() {
-            return this.$route.name !== undefined
-                ? this.$route.name + new Date()
-                : this.$route + new Date();
-        }
     }
 };
 </script>

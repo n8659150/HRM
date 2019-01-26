@@ -16,7 +16,7 @@
     <div>
         <div style="margin-top: 1rem;">
             <b-button-toolbar>
-                <b-badge style="margin-right: 0.5rem" variant="warning" v-for="tag in tagsAttached">{{tag.content}} <b-btn size=sm v-on:click="removeTag(tag)">x</b-btn></b-badge>
+                <b-badge style="margin-right: 0.5rem" variant="warning" v-for="(tag, $key) in tagsAttached" :key="$key">{{tag.content}} <b-btn size=sm v-on:click="removeTag(tag)">x</b-btn></b-badge>
             </b-button-toolbar>
         </div>
     </div>
