@@ -43,20 +43,21 @@ export default {
     };
   },
   methods: {
-    async fetchCurrentResume() {
-      let result = await fetchResumeById(this.$route.params.id);
+    async fetchCurrentResume(id) {
+      let result = await fetchResumeById(id);
       this.resume = result.data;
     },
-    back() {
-      this.$router.go(-1); //返回上一层
-    }
   },
   mounted() {
-    this.fetchCurrentResume();
+    this.fetchCurrentResume(this.$route.params.id);
     let cachedResumes = store.fetch("cachedResumes");
     if (cachedResumes) {
       this.cachedResumes = cachedResumes;
     }
+  },
+  beforeRouteUpdate(to,from,next){
+    this.fetchCurrentResume(to.params.id);
+    next()
   }
 };
 </script>
