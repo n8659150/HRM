@@ -28,7 +28,8 @@ export default {
 
 <style>
     .control-panel {
-        background-color: #5c5959;
+        /* background-color: #5c5959; */
+        background-color: #5c5959db;
         position: fixed;
         width: 100%;
         bottom: 0;

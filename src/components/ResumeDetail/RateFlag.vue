@@ -1,7 +1,8 @@
 <template>
     <div class="rate-flag">
 
-        <div class="bv-example-row" style="background-color: #5c5959;">
+        <!-- <div class="bv-example-row" style="background-color: #5c5959;"> -->
+            <div class="bv-example-row">
             <b-row>
                 <b-col cols="10">
                     <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" v-bind:show-rating=false @rating-selected="updateResumeStar" v-bind:rounded-corners=true border-color="#ff1010" v-bind:border-width=1></star-rating>

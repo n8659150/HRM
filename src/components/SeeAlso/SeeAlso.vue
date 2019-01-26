@@ -82,13 +82,15 @@ export default {
     .list-wrapper {
         padding: 0 0px;
         white-space: nowrap;
+        margin-bottom: 0.1rem;
     }
 
     .list-item {
         display: inline-block;
         padding: 8px;
         width: 8rem;
-        background-color: #403c3cd6;
+        // background-color: #403c3cd6;
+        background-color: #5c5959db;
     }
 
     .see-also-title {
