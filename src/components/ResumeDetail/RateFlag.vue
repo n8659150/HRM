@@ -13,13 +13,13 @@
                 </b-col>
             </b-row>
 
-            <div>
-                <div style="margin-top: 1rem;">
-                    <b-badge style="margin-right: 0.5rem" variant="warning" v-for="(tag, $key) in tagsAttached" :key="$key">{{tag.content}}</b-badge>
-                </div>
-                <div>
-                </div>
-            </div>
+    <div>
+        <div style="margin-top: 1rem;">
+            <b-button-toolbar>
+                <b-badge style="margin-right: 0.5rem" variant="warning" v-for="tag in tagsAttached">{{tag.content}} <b-btn size=sm v-on:click="removeTag(tag)">x</b-btn></b-badge>
+            </b-button-toolbar>
+        </div>
+    </div>
 
         </div>
 
@@ -55,6 +55,7 @@ export default {
             }
         },
         async getAttachedTags() {
+            this.tagsAttached = [];
             this.resume.tags.forEach(tagID => {
                 let tag = this.tags.find(tag => {
                     return tag.id === tagID;
@@ -66,6 +67,13 @@ export default {
                     this.tagsAttached.push(tag);
                 }
             });
+        },
+        async removeTag(tag) {
+            this.resume.tags = this.resume.tags.filter(tagID => {
+                return tagID !== tag.id;
+            });
+            await updateResume(this.resume);
+            await this.getAttachedTags();
         }
     },
     data() {
