@@ -28,8 +28,8 @@ export default {
 
 <style>
     .control-panel {
-        /* background-color: #5c5959; */
-        background-color: #5c5959db;
+        /*background-color: #5c5959;*/
+        background-color:#7d7c7c;
         position: fixed;
         width: 100%;
         bottom: 0;

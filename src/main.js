@@ -9,7 +9,6 @@ import {
   Scroll,
 } from 'cube-ui'
 import 'font-awesome/css/font-awesome.css';
-// Vue.component('text-highlight', TextHighlight);
 Vue.use(Scroll)
 Vue.config.productionTip = false
 

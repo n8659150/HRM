@@ -1,29 +1,23 @@
 <template>
     <div class="rate-flag">
+        <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" v-bind:show-rating=false @rating-selected="updateResumeStar" v-bind:rounded-corners=true border-color="#ff1010" v-bind:border-width=1></star-rating>
 
-        <!-- <div class="bv-example-row" style="background-color: #5c5959;"> -->
-            <div class="bv-example-row">
-            <b-row>
-                <b-col cols="10">
-                    <star-rating v-bind:max-rating="5" v-model="resume.star" v-bind:star-size="30" v-bind:show-rating=false @rating-selected="updateResumeStar" v-bind:rounded-corners=true border-color="#ff1010" v-bind:border-width=1></star-rating>
-                </b-col>
-                <b-col cols="1">
-                    <b-dropdown dropup right variant="secondary" size="sm">
-                        <b-dropdown-item v-for="(tag, $key) in tags" :key="$key" v-on:click="addTag(tag)">{{tag.content}}</b-dropdown-item>
-                    </b-dropdown>
-                </b-col>
-            </b-row>
+        <div class="space-between" style="margin-top: 1rem;">
+            <div>
+                <b-badge class="tag" variant="warning" size="default" v-for="tag in tagsAttached">
+                    <span style="margin-right: 0.3rem"><i class="fa fa-tag" aria-hidden="true"></i></span>{{tag.content}}
+                    <span class="inline-block" style="margin-left: 0.5rem;" v-on:click="removeTag(tag)">
+                        <i class="fa fa-remove text-danger" aria-hidden="true"></i>
+                    </span>
+                </b-badge>
+            </div>
 
-    <div>
-        <div style="margin-top: 1rem;">
-            <b-button-toolbar>
-                <b-badge style="margin-right: 0.5rem" variant="warning" v-for="(tag, $key) in tagsAttached" :key="$key">{{tag.content}} <b-btn size=sm v-on:click="removeTag(tag)">x</b-btn></b-badge>
-            </b-button-toolbar>
+            <div class="add-tag">
+                <b-dropdown dropup right variant="secondary" size="sm">
+                    <b-dropdown-item v-for="(tag, $key) in tags" :key="$key" v-on:click="addTag(tag)">{{tag.content}}</b-dropdown-item>
+                </b-dropdown>
+            </div>
         </div>
-    </div>
-
-        </div>
-
     </div>
 </template>
 
@@ -91,10 +85,26 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .rate-flag {
     padding: 0.5rem;
     color: white;
-  }
+    background-color: #7d7c7c;
+    /*background-color:#f4f4f4;*/
+
+    margin-bottom: 1rem;
+}
+
+.tag {
+    margin: 0rem 0.8rem 0.8rem 0;
+}
+
+.add-tag {
+    width: 2rem;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
 </style>

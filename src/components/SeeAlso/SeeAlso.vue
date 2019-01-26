@@ -88,14 +88,15 @@ export default {
     .list-item {
         display: inline-block;
         padding: 8px;
-        width: 8rem;
-        // background-color: #403c3cd6;
-        background-color: #5c5959db;
+        width: 9rem;
+        background-color: white;
+        border: solid 1px #7d7c7c;
+        border-radius: 4px;
     }
 
     .see-also-title {
         margin-bottom: 8px;
-        color: white;
+        color: black;
     }
 }
 

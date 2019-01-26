@@ -24,4 +24,9 @@ body {
 .header-fix {
     padding-top: 56px;
 }
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
 </style>
