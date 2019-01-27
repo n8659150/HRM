@@ -168,6 +168,9 @@ export default {
         await this.fetchResumes();
         await this.getAllTags();
         await this.getAllHighlights();
+        this.$root.eventHub.$on('synctags',(updatedTags)=> {
+            this.tags = updatedTags;
+        });
     }
 };
 </script>
