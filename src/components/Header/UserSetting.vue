@@ -81,6 +81,7 @@ export default {
             await addNewTag(this.newTagContent);
             await this.getAllTags();
             this.newTagContent = "";
+            this.$root.eventHub.$emit('synctags', this.tags);
         },
         async deleteTag(tagid) {
             await deleteTag(tagid);
@@ -100,6 +101,7 @@ export default {
             })
             store.save("cachedResumes", resumes);
             await this.getAllTags();
+            this.$root.eventHub.$emit('synctags', this.tags);
         },
         async addNewHighlight() {
             await addNewHighlight(this.newHighlight);
@@ -110,6 +112,7 @@ export default {
         async deleteHighlight(highlightid) {
             await deleteHighlight(highlightid);
             await this.getAllHighlights();
+            this.$root.eventHub.$emit('synchighlights', this.highlights);
         },
         clearNewHighlight() {
             this.newHighlight = "";

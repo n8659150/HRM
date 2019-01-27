@@ -81,6 +81,9 @@ export default {
     async mounted() {
         await this.getAllTags();
         await this.getAttachedTags();
+        this.$root.eventHub.$on('synctags',(updatedTags)=> {
+            this.tagsAttached = updatedTags;
+        });
     }
 };
 </script>
