@@ -1,9 +1,9 @@
 <template>
 <div class="user-setting">
-    <b-input-group size="sm">
+    <b-input-group>
         <b-form-input placeholder="Add a Tag Here" v-model="newTagContent"></b-form-input>
         <b-input-group-append>
-            <b-btn size=sm variant="secondary" v-on:click="addNewTag(newTagContent)">
+            <b-btn variant="secondary" v-on:click="addNewTag(newTagContent)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </b-btn>
         </b-input-group-append>
@@ -22,10 +22,10 @@
         </span>
     </div>
 
-    <b-input-group size="sm">
+    <b-input-group>
         <b-form-input placeholder="Add a Highlight Here" v-model="newHighlight"></b-form-input>
         <b-input-group-append>
-            <b-btn size=sm variant="secondary" v-on:click="addNewHighlight(newHighlight)">
+            <b-btn variant="secondary" v-on:click="addNewHighlight(newHighlight)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </b-btn>
         </b-input-group-append>
@@ -144,9 +144,10 @@ export default {
     position: fixed;
     top: 2.5rem;
     width: 100%;
-    height: 15rem;
+    height: 100%;
     background-color: #f4f4f4;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
+    z-index: 1;
 }
 .tag-list {
   margin: 0 0 1rem 0;

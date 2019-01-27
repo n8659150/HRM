@@ -37,7 +37,7 @@ export default {
 }
 
 .experience-block {
-    margin: 0rem 0 0rem 2rem;
+    margin: 0rem 0 0rem 1rem;
     padding: 1rem 0 1rem 0;
 }
 

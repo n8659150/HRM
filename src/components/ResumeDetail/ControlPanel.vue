@@ -1,7 +1,12 @@
 <template>
 <div class="control-panel">
     <RateFlag :resume="resume"></RateFlag>
-    <SeeAlso :resumeList="resumeList"></SeeAlso>
+    <div class="see-also-button">
+        <span @click="showSeeAlso = !showSeeAlso">
+            <i class="fa fa-fighter-jet" aria-hidden="true"></i>
+        </span>
+        </div>
+    <SeeAlso v-if="showSeeAlso" :resumeList="resumeList"></SeeAlso>
 </div>
 </template>
 
@@ -21,7 +26,9 @@ export default {
 
     },
     data() {
-        return {};
+        return {
+            showSeeAlso: false
+        };
     },
 };
 </script>
@@ -34,4 +41,12 @@ export default {
         width: 100%;
         bottom: 0;
     }
+
+    .see-also-button {
+        text-align: center;
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 0.1rem;
+    }
+
 </style>

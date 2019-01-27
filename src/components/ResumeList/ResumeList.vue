@@ -15,7 +15,7 @@
 
             <div style="margin-top: 0.5rem;">
                 <div style="margin: 0 2rem 0 0; font-size: 0.9rem; color: gray"><span>Tag: </span></div>
-                <div style=""><b-form-select v-model="tagFilter" size="sm" v-on:change="filtByTag(tagFilter)">
+                <div style=""><b-form-select v-model="tagFilter" v-on:change="filtByTag(tagFilter)">
                     <option v-bind:value="tag.id" v-for="tag in tags">{{ tag.content }}</option>
                 </b-form-select>
                 </div>
@@ -197,12 +197,12 @@ body,
 }
 
 .resume {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 }
 
 .filter {
     background-color: #f4f4f4;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 }
 
 .resume .name {

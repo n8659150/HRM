@@ -87,12 +87,10 @@ export default {
 
 <style scoped>
 .rate-flag {
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0 0.5rem;
     color: white;
     background-color: #7d7c7c;
     /*background-color:#f4f4f4;*/
-
-    margin-bottom: 1rem;
 }
 
 .tag {
