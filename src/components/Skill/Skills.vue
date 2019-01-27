@@ -27,7 +27,19 @@ export default {
     name: "Skills",
     props: ["skills"],
     data() {
-        return {};
+        return {
+          icons:{
+            'angular':require('@/assets/angular.png'),
+            'react':require('@/assets/react.png'),
+            'nodejs':require('@/assets/nodejs.png'),
+            'sketch':require('@/assets/sketch.png'),
+            'adobe':require('@/assets/adobe.png'),
+            'vue':require('@/assets/vue.png'),
+            'python':require('@/assets/python.png'),
+            'ruby':require('@/assets/ruby.png'),
+            'photoshop':require('@/assets/photoshop.png')
+          }
+          };
     },
     methods: {
       getLevel(level) {
@@ -42,31 +54,31 @@ export default {
       getIcon(skill) {
         skill = skill.toLocaleLowerCase();
         if (skill === "angular") {
-          return "http://angularjs.org/img/ng-logo.png";
+          return this.icons.angular;
         }
         if (skill === "react") {
-          return "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png";
+          return this.icons.react;
         }
         if (skill === "nodejs") {
-          return "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png";
+          return this.icons.nodejs;
         }
         if (skill === "sketch") {
-          return "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Sketch_logo_frame.svg/988px-Sketch_logo_frame.svg.png";
+          return this.icons.sketch;
         }
         if (skill.indexOf("adobe") !== -1) {
-          return "https://upload.wikimedia.org/wikipedia/commons/7/7b/Adobe_Systems_logo_and_wordmark.svg";
+          return this.icons.adobe;
         }
         if (skill === "vue") {
-          return "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1920px-Vue.js_Logo_2.svg.png";
+          return this.icons.vue;
         }
         if (skill === "python") {
-          return "https://www.python.org/static/opengraph-icon-200x200.png";
+          return this.icons.python;
         }
         if (skill === "ruby") {
-          return "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/200px-Ruby_logo.svg.png";
+          return this.icons.ruby;
         }
         if (skill == "photoshop") {
-          return "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1920px-Adobe_Photoshop_CC_icon.svg.png";
+          return this.icons.photoshop;
         }
       }
     }

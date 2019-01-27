@@ -3,7 +3,7 @@
     <fixed-header :threshold="1">
       <nav class="navbar">
         <div class="navbar-brand">
-          <span class="navbar-item" v-if="showBackButton">
+          <span class="navbar-item" v-if="showBackButton && !showUserSetting">
             <i @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
           </span>
         </div>
