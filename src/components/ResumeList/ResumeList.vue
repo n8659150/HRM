@@ -15,8 +15,8 @@
 
             <div style="margin-top: 0.5rem;">
                 <div style="margin: 0 2rem 0 0; font-size: 0.9rem; color: gray"><span>Tag: </span></div>
-                <div style=""><b-form-select v-model="tagFilter" v-on:change="filtByTag(tagFilter)">
-                    <option v-bind:value="tag.id" v-for="tag in tags">{{ tag.content }}</option>
+                <div style=""><b-form-select v-model="tagFilter">
+                    <option v-bind:key="tag.id" v-bind:value="tag.id" v-for="tag in tags">{{ tag.content }}</option>
                 </b-form-select>
                 </div>
             </div>
@@ -82,6 +82,18 @@ export default {
             currentRating: 0
         };
     },
+    watch: {
+        'tagFilter': function () {
+            const tagId = this.tagFilter
+            this.resumes = store.fetch("cachedResumes");
+            this.resumes = this.resumes.filter( resume => {
+                let found = resume.tags.find( tagID => {
+                    return tagID == tagId;
+                })
+                return found ? true : false;
+            });
+        },
+    },
 
     methods: {
         async fetchResumes() {
@@ -104,15 +116,6 @@ export default {
             let result = await fetchAllHighlights();
             store.save("cachedHighlights", result.data);
             this.highlights = result.data;
-        },
-        async filtByTag(tagId) {
-            this.resumes = store.fetch("cachedResumes");
-            this.resumes = this.resumes.filter( resume => {
-                let found = resume.tags.find( tagID => {
-                    return tagID == tagId;
-                })
-                return found ? true : false;
-            });
         },
         clearFilters() {
            this.resumes = store.fetch("cachedResumes");
