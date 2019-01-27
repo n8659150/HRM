@@ -5,7 +5,7 @@
             <div>
             <div style="margin: 0 2rem 0 0; font-size: 0.9rem; color: gray"><span>Star: </span></div>
             <div style="">
-                <star-rating v-bind:max-rating="5" v-bind:star-size="25"
+                <star-rating v-model="currentRating" v-bind:max-rating="5" v-bind:star-size="25"
                         v-bind:show-rating=false
                         v-bind:padding="8"
                         @rating-selected="filtByStar">
@@ -64,7 +64,7 @@
 <script>
 import FixedHeader from "vue-fixed-header";
 import StarRating from "vue-star-rating";
-import { fetchResumeList, fetchStarsByResumeId, fetchAllTags, addNewTag, deleteTag, addNewHighlight, deleteHighlight, fetchAllHighlights } from "@/helpers/data";
+import { fetchResumeList, fetchStarsByResumeId, fetchAllTags, addNewTag, deleteTag, addNewHighlight, deleteHighlight, fetchAllHighlights, updateResume } from "@/helpers/data";
 import store from "@/helpers/store";
 export default {
     name: "ResumeList",
@@ -80,7 +80,8 @@ export default {
             newTagContent: "",
             newHighlight: "",
             highlights: [],
-            tagFilter: 0
+            tagFilter: 0,
+            currentRating: 0
         };
     },
 
@@ -117,6 +118,8 @@ export default {
         },
         clearFilters() {
            this.resumes = store.fetch("cachedResumes");
+           this.currentRating = 0;
+           this.tagFilter = 0;
         },
         clearNewTag() {
             this.newTagContent = "";
@@ -127,8 +130,22 @@ export default {
             this.newTagContent = "";
         },
         async deleteTag(tagid) {
-            // TODO: Delete data in resume accordingly
             await deleteTag(tagid);
+            this.resumes = this.resumes.forEach(async (resume) => {
+                if (resume.tags) {
+                    let tagFound = resume.tags.find(tagID => {
+                        return tagID == tagid;
+                    })
+                    if (tagFound) {
+                        resume.tags = resume.tags.filter(tagID => {
+                            return tagID !== tagid;
+                        })
+                        await updateResume(resume);
+                    }
+                }
+            })
+            await updateResume(this.resumes);
+            store.save("cachedResumes", this.resumes);
             await this.getAllTags();
         },
         async addNewHighlight() {

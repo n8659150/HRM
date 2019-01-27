@@ -55,7 +55,8 @@ import {
     deleteTag,
     addNewHighlight,
     deleteHighlight,
-    fetchAllHighlights
+    fetchAllHighlights,
+    updateResume
 } from "@/helpers/data";
 
 import store from "@/helpers/store";
@@ -82,8 +83,22 @@ export default {
             this.newTagContent = "";
         },
         async deleteTag(tagid) {
-            // TODO: Delete data in resume accordingly
             await deleteTag(tagid);
+            let resumes = store.fetch("cachedResumes");
+            resumes = resumes.forEach(async (resume) => {
+                if (resume.tags) {
+                    let tagFound = resume.tags.find(tagID => {
+                        return tagID == tagid;
+                    })
+                    if (tagFound) {
+                        resume.tags = resume.tags.filter(tagID => {
+                            return tagID !== tagid;
+                        })
+                        await updateResume(resume);
+                    }
+                }
+            })
+            store.save("cachedResumes", resumes);
             await this.getAllTags();
         },
         async addNewHighlight() {
