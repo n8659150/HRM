@@ -11,7 +11,7 @@
             <span class="inline-block">{{ skill.name }}</span>
           </div>
           <div class="level-block">
-            <div class="dot_1 level" style="background-color: #ff0058;"></div>
+            <div class="dot_1 level" style="background-color: rgb(108, 220, 251)"></div>
             <div class="dot_2 level" v-bind:class="{ 'level-on': skill.level === 'Master' || skill.level === 'Professinal' }"></div>
             <div class="dot_3 level" v-bind:class="{ 'level-on': skill.level === 'Master' }"></div>
           </div>
@@ -133,7 +133,7 @@ export default {
 }
 
 .level-on {
-  background-color: #ff0058 !important;
+  background-color: rgb(108, 220, 251) !important;
 }
 
 .inline-block {
