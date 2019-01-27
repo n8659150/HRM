@@ -24,6 +24,6 @@ server.use((req, res, next) => {
 
 // Use default router
 server.use(router)
-server.listen(3000, "http://94.191.68.133", () => {
+server.listen(3000, "0.0.0.0", () => {
   console.log('JSON Server is running')
 })
