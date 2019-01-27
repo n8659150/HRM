@@ -1,7 +1,7 @@
 <template>
     <div class="experience">
         <div>
-            <h5>Experience</h5>
+            <h5>Experiences</h5>
             <div v-for="(experience, $key) in resume.work" :key="$key">
                 <div class="experience-block">
                     <div>{{ experience.position }}</div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import TextHighlight from 'vue-text-highlight';
+import TextHighlight from "vue-text-highlight";
 import store from "@/helpers/store";
 export default {
     name: "Experience",
@@ -38,12 +38,18 @@ export default {
     methods: {
         fetchHighlights() {
             let highlights = store.fetch("cachedHighlights");
-            highlights.forEach( highlight => {
+            highlights.forEach(highlight => {
                 this.queries.push(highlight.content);
-            })
+            });
         }
     },
     mounted() {
+        this.$root.eventHub.$on('synchighlights',(updatedHighlights)=> {
+            this.queries.length = 0;
+            updatedHighlights.forEach(highlight => {
+                this.queries.push(highlight.content);
+            })
+        });
         this.fetchHighlights();
     }
 };
@@ -82,5 +88,4 @@ export default {
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
 }
-
 </style>

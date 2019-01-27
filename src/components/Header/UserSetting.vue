@@ -105,6 +105,7 @@ export default {
             await addNewHighlight(this.newHighlight);
             await this.getAllHighlights();
             this.newHighlight = "";
+            this.$root.eventHub.$emit('synchighlights', this.highlights);
         },
         async deleteHighlight(highlightid) {
             await deleteHighlight(highlightid);

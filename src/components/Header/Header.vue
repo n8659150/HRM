@@ -1,52 +1,51 @@
 <template>
-  <div><fixed-header :threshold="1">
-    <nav class="navbar">
+  <div>
+    <fixed-header :threshold="1">
+      <nav class="navbar">
         <div class="navbar-brand">
           <span class="navbar-item" v-if="showBackButton">
             <i @click="back()" class="fa fa-arrow-left" aria-hidden="true"></i>
           </span>
-            </div>
+        </div>
 
-            <div class="navbar-brand">
-                <span class="navbar-item" @click="showUserSetting = !showUserSetting">
+        <div class="navbar-brand">
+          <span class="navbar-item" @click="showUserSetting = !showUserSetting">
             <i class="fa fa-sliders" aria-hidden="true"></i>
           </span>
-            </div>
+        </div>
 
-        </nav>
+      </nav>
     </fixed-header>
 
     <user-setting v-show="showUserSetting"></user-setting>
-    </div>
-</div>
+  </div>
 </template>
 
 <script>
-import FixedHeader from 'vue-fixed-header'
-import StarRating from 'vue-star-rating'
+import FixedHeader from "vue-fixed-header";
+import StarRating from "vue-star-rating";
 import UserSetting from "@/components/Header/UserSetting.vue";
 
 export default {
-  name: "Header",
-  components: { StarRating , FixedHeader, UserSetting},
-  data() {
-    return {
-      resumes: [],
-      showUserSetting: false
+    name: "Header",
+    components: { StarRating, FixedHeader, UserSetting },
+    data() {
+        return {
+            resumes: [],
+            showUserSetting: false
+        };
+    },
+    computed: {
+        showBackButton() {
+            return this.$route.params.id ? true : false;
+        }
+    },
+    methods: {
+        back() {
+            this.$router.push("/");
+        }
     }
-  },
-  computed: {
-    showBackButton() {
-      return (this.$route.params.id) ? true : false;
-    }
-  },
-  methods: {
-    back() {
-      this.$router.push('/');
-    }
-  }
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -71,5 +70,6 @@ body,
     background-color: #f4f4f4;
 }
 
-.header {}
+.header {
+}
 </style>
