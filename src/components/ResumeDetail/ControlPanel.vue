@@ -5,8 +5,8 @@
         <span @click="showSeeAlso = !showSeeAlso">
             <i class="fa fa-fighter-jet" aria-hidden="true"></i>
         </span>
-        </div>
-    <SeeAlso v-if="showSeeAlso" :resumeList="resumeList"></SeeAlso>
+    </div>
+    <SeeAlso v-show="showSeeAlso" :resumeList="resumeList"></SeeAlso>
 </div>
 </template>
 
