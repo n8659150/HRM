@@ -3,7 +3,7 @@
     <b-input-group size="sm">
         <b-form-input placeholder="Add a Tag Here" v-model="newTagContent"></b-form-input>
         <b-input-group-append>
-            <b-btn size=sm variant="info" v-on:click="addNewTag(newTagContent)">
+            <b-btn size=sm variant="secondary" v-on:click="addNewTag(newTagContent)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </b-btn>
         </b-input-group-append>
@@ -25,7 +25,7 @@
     <b-input-group size="sm">
         <b-form-input placeholder="Add a Highlight Here" v-model="newHighlight"></b-form-input>
         <b-input-group-append>
-            <b-btn size=sm variant="info" v-on:click="addNewHighlight(newHighlight)">
+            <b-btn size=sm variant="secondary" v-on:click="addNewHighlight(newHighlight)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </b-btn>
         </b-input-group-append>

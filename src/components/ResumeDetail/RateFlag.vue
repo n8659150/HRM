@@ -7,7 +7,7 @@
                 <b-badge class="tag" variant="warning" size="default" v-for="tag in tagsAttached">
                     <span style="margin-right: 0.3rem"><i class="fa fa-tag" aria-hidden="true"></i></span>{{tag.content}}
                     <span class="inline-block" style="margin-left: 0.5rem;" v-on:click="removeTag(tag)">
-                        <i class="fa fa-remove text-danger" aria-hidden="true"></i>
+                        <i class="fa fa-remove" aria-hidden="true"></i>
                     </span>
                 </b-badge>
             </div>

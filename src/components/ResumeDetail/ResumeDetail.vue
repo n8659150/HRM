@@ -1,7 +1,8 @@
 <template>
   <div class="resume-detail" v-if="resume">
     <BasicInfo :resume="resume" class="block-content"></BasicInfo>
-    <skills :skills="skills" class="block-content"></skills>
+    <skills :skills="resume.skills" class="block-content"></skills>
+    <language :languages="resume.languages" class="block-content"></language>
     <Experience :resume="resume" class="block-content"></Experience>
     <Education :resume="resume" class="block-content"></Education>
     <ControlPanel :resume="resume" :resumeList="cachedResumes" ></ControlPanel>
@@ -14,18 +15,26 @@ import FixedHeader from 'vue-fixed-header';
 import store from "@/helpers/store";
 import BasicInfo from "@/components/basicInfo/BasicInfo.vue";
 import Skills from "@/components/Skill/Skills.vue";
+import Language from "@/components/ResumeDetail/Language.vue";
 import Experience from "@/components/experience/Experience.vue";
 import Education from "@/components/education/Education.vue";
 import ControlPanel from "@/components/ResumeDetail/ControlPanel.vue";
 
 export default {
   name: "ResumeDetail",
-  components: { FixedHeader, Skills, BasicInfo, Experience, Education, ControlPanel},
+  components: {
+    FixedHeader,
+    Skills,
+    BasicInfo,
+    Experience,
+    Education,
+    ControlPanel,
+    Language
+  },
   data() {
     return {
       resume: null,
       cachedResumes: [],
-      skills: ["AngularJS", "Javascript", "Node.js", "HTML", "CSS"],
       isFixed: false
     };
   },
@@ -64,7 +73,7 @@ export default {
 
   .resume-detail {
     background-color: #f4f4f4;
-    padding-top: 2rem;
+    padding: 2rem 0 12rem 0;
   }
 
 html,

@@ -26,8 +26,6 @@
             </div>
         </div>
 
-        <!--<TagManager></TagManager>-->
-
         <div>
             <div v-for="resume in resumes" :key="resume.id">
                 <div class="resume" @click="goResume(resume.id)">
@@ -42,8 +40,8 @@
                     <div class="name">{{resume.name}}</div>
                     <div class="position" style="color: gray">{{resume.work[0].position}}</div>
                     <div>
-                        <span class="location-icon" style="font-size: 1.2rem;">
-                            <i class="fa fa-map-marker-alt" aria-hidden="true"></i></span>
+                        <span class="location-icon" style="font-size: 1.3rem;">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i></span>
                         <span class="location" style="font-size: 1rem; color: gray">{{resume.city}}</span>
                     </div>
                     <div style="margin: 0.5rem 0" class="inline-gap"></div>

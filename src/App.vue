@@ -29,4 +29,9 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.badge-warning {
+    color: #565555;
+    font-weight: normal;
+}
 </style>

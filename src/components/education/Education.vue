@@ -3,9 +3,17 @@
         <div>
             <h5>Education</h5>
             <div v-for="(education, $key) in resume.education" :key="$key">
-                <div>
-
+                <div class="education-block">
+                    <div>{{ education.institution }}</div>
+                    <div>{{ education.area }}</div>
+                    <div>{{ education.studyType }}</div>
+                    <div class="date">
+                        <span>{{ education.startDate | moment("MMMM YYYY") }}</span>
+                        <span>-</span>
+                        <span>{{ education.endDate | moment("MMMM YYYY") }}</span>
+                    </div>
                 </div>
+
                 <div class="gap"></div>
             </div>
         </div>
