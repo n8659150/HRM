@@ -7,7 +7,7 @@
         </div>
         <div style="height: 5rem">
             <span style="font-size: 1.5rem; display: block">{{ resume.name }}</span>
-            <span style="display: block; margin-top: -0.2rem;">Font End Developer</span>
+            <span style="display: block; margin-top: -0.2rem;">{{ resume.work[0].position }}</span>
 
             <div style="display:flex; align-items: base-line; margin: 0.3rem 0 0 -0.2rem">
                 <b-img style="width:1rem; height: 90%" v-bind:src="images.mapFlag" fluid />

@@ -5,8 +5,8 @@
       </div>
 
       <div class="cycle-panel">
-        <div v-for="(language, $key) in languages" :key="$key">
-          <div class="cycle" v-bind:class="{'cycle-75': language.fluency === 'Native speaker'}">
+        <div style="margin-right: 1rem;" v-for="(language, $key) in languages" :key="$key">
+          <div class="cycle" v-bind:class="{'cycle-75': language.fluency === 'Fluent'}">
           </div>
           <div class="cycle-language"><span>{{ language.language }}</span></div>
           <div class="cycle-fluency">{{ language.fluency }}</div>
@@ -47,6 +47,9 @@ export default {
     height: 6.5rem;
     overflow: hidden;
     margin-top: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .cycle {
