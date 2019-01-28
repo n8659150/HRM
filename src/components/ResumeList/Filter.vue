@@ -1,38 +1,43 @@
 <template>
   <fixed-header :fixed.sync="isFixed" :threshold="1">
     <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <span class="navbar-item">
-              Header Content
-            </span>
-            <b-dropdown size=sm>
-              <star-rating v-bind:max-rating="5" v-bind:star-size="25" v-bind:rounded-corners=true v-bind:show-rating=false v-bind:padding="8" @rating-selected ="filterByStar"></star-rating>
-            </b-dropdown>
-          </div>
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-item">Header Content</span>
+          <b-dropdown size="sm">
+            <star-rating
+              v-bind:max-rating="5"
+              v-bind:star-size="25"
+              v-bind:rounded-corners="true"
+              v-bind:show-rating="false"
+              v-bind:padding="8"
+              @rating-selected="filterByStar"
+            ></star-rating>
+          </b-dropdown>
         </div>
-      </nav>
+      </div>
+    </nav>
   </fixed-header>
 </template>
 
 <script>
-import FixedHeader from 'vue-fixed-header'
-import StarRating from 'vue-star-rating'
+import FixedHeader from "vue-fixed-header";
+import StarRating from "vue-star-rating";
 export default {
   name: "Header",
-  components: { StarRating , FixedHeader},
+  components: { StarRating, FixedHeader },
   data() {
     return {
       resumes: [],
       isFixed: false
-    }
+    };
   },
   methods: {
-      filterByStar(rating) {
-        this.resumes.filter( resume => {
-          return resume.stars === rating;
-        })
-      }
+    filterByStar(rating) {
+      this.resumes.filter(resume => {
+        return resume.stars === rating;
+      });
+    }
   }
 };
 </script>
@@ -58,5 +63,4 @@ body,
 .header {
   background-color: #f4f4f4;
 }
-
 </style>

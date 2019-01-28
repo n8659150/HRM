@@ -1,7 +1,6 @@
 import axios from 'axios'
 axios.defaults.withCredentials = true;
 const HOST = `http://94.191.68.133:3000`;
-// const HOST = `http://localhost:3000`;
 function fetchResumeList() {
     let fullUrl = `${HOST}/resumes`;
     return axios.get(fullUrl)

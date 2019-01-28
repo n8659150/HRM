@@ -8,6 +8,5 @@ export default {
     },
     clear() {
         window.localStorage.clear();
-        console.log('本地记录清除成功');
     }
 }

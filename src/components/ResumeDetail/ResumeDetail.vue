@@ -5,13 +5,13 @@
     <language :languages="resume.languages" class="block-content"></language>
     <Experience :resume="resume" class="block-content"></Experience>
     <Education :resume="resume" class="block-content"></Education>
-    <ControlPanel :resume="resume" :resumeList="cachedResumes" ></ControlPanel>
+    <ControlPanel :resume="resume" :resumeList="cachedResumes"></ControlPanel>
   </div>
 </template>
 
 <script>
 import { fetchResumeById } from "@/helpers/data";
-import FixedHeader from 'vue-fixed-header';
+import FixedHeader from "vue-fixed-header";
 import store from "@/helpers/store";
 import BasicInfo from "@/components/basicInfo/BasicInfo.vue";
 import Skills from "@/components/Skill/Skills.vue";
@@ -51,30 +51,30 @@ export default {
       this.cachedResumes = cachedResumes;
     }
   },
-  beforeRouteUpdate(to,from,next){
+  beforeRouteUpdate(to, from, next) {
     this.fetchCurrentResume(to.params.id);
-    next()
+    next();
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .block-content {
-    background-color: white;
-    padding: 1rem !important;
-    margin-bottom: 1rem;
-  }
-  .gap {
-    height: 20px;
-    width: 100%;
-    background-color: #f4f4f4;
-  }
+.block-content {
+  background-color: white;
+  padding: 1rem !important;
+  margin-bottom: 1rem;
+}
+.gap {
+  height: 20px;
+  width: 100%;
+  background-color: #f4f4f4;
+}
 
-  .resume-detail {
-    background-color: #f4f4f4;
-    padding: 2rem 0 12rem 0;
-  }
+.resume-detail {
+  background-color: #f4f4f4;
+  padding: 2rem 0 12rem 0;
+}
 
 html,
 body,
@@ -93,5 +93,4 @@ body,
   background-color: #f4f4f4;
   height: 2rem;
 }
-
 </style>

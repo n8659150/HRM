@@ -1,36 +1,35 @@
 <template>
-    <div class="language">
-      <div>
-        <h5 class="block-title">Language</h5>
-      </div>
-
-      <div class="cycle-panel">
-        <div style="margin-right: 1rem;" v-for="(language, $key) in languages" :key="$key">
-          <div class="cycle" v-bind:class="{'cycle-75': language.fluency === 'Fluent'}">
-          </div>
-          <div class="cycle-language"><span>{{ language.language }}</span></div>
-          <div class="cycle-fluency">{{ language.fluency }}</div>
-        </div>
-      </div>
+  <div class="language">
+    <div>
+      <h5 class="block-title">Language</h5>
     </div>
 
+    <div class="cycle-panel">
+      <div style="margin-right: 1rem;" v-for="(language, $key) in languages" :key="$key">
+        <div class="cycle" v-bind:class="{'cycle-75': language.fluency === 'Fluent'}"></div>
+        <div class="cycle-language">
+          <span>{{ language.language }}</span>
+        </div>
+        <div class="cycle-fluency">{{ language.fluency }}</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "Language",
-    props: ["languages"],
-    data() {
-        return {};
-    },
-    methods: {
-    }
+  name: "Language",
+  props: ["languages"],
+  data() {
+    return {};
+  },
+  methods: {}
 };
 </script>
 
 <style scoped>
 .language {
-    padding: 1em 0 1em 0;
+  padding: 1em 0 1em 0;
 }
 
 .cycle span {
@@ -42,30 +41,30 @@ export default {
 }
 
 .cycle-panel {
-    position: relative;
-    width: 100%;
-    height: 6.5rem;
-    overflow: hidden;
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  height: 6.5rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .cycle {
-    width: 5rem;
-    height: 5rem;
-    border: 4px solid transparent;
-    border-radius: 50%;
-    position: absolute;
-    border-left: 4px solid #ff0058;
-    border-right: 4px solid #ff0058;
-    border-top: 4px solid #ff0058;
-    border-bottom: 4px solid #ff0058;
-    -webkit-transform : rotate(45deg);
-    -moz-transform : rotate(45deg);
-    -o-transform : rotate(45deg);
-    transform : rotate(45deg);
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  border-left: 4px solid #ff0058;
+  border-right: 4px solid #ff0058;
+  border-top: 4px solid #ff0058;
+  border-bottom: 4px solid #ff0058;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .cycle-75 {
@@ -85,5 +84,4 @@ export default {
   color: #8c8e90;
   margin-top: 0.3rem;
 }
-
 </style>

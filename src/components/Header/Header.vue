@@ -70,6 +70,4 @@ body,
     background-color: #f4f4f4;
 }
 
-.header {
-}
 </style>
