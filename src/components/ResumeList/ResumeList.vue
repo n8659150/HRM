@@ -23,9 +23,14 @@
           <span>Tag:</span>
         </div>
         <div style>
-          <b-form-select v-model="tagFilter">
-            <option v-bind:key="tag.id" v-bind:value="tag.id" v-for="tag in tags">{{ tag.content }}</option>
-          </b-form-select>
+            <b-button style="margin: 0 1rem 0.5rem 0;" v-on:click="tagFilter = null" size="sm"
+                    :variant="tagFilter === null ? 'warning' : 'outline-secondary'">
+                all tags
+            </b-button>
+            <b-button style="margin: 0 1rem 0.5rem 0;" v-for="tag in tags" v-on:click="tagFilter = tag.id" size="sm"
+                    :variant="tag.id === tagFilter ? 'warning' : 'outline-secondary'">
+                {{ tag.content }}
+            </b-button>
         </div>
       </div>
 
@@ -102,7 +107,7 @@ export default {
       newTagContent: "",
       newHighlight: "",
       highlights: [],
-      tagFilter: 0,
+      tagFilter: null,
       currentRating: 0
     };
   },
@@ -110,6 +115,9 @@ export default {
     tagFilter: function() {
       const tagId = this.tagFilter;
       this.resumes = store.fetch("cachedResumes");
+
+      if (this.tagFilter === null) { return; }
+
       this.resumes = this.resumes.filter(resume => {
         let found = resume.tags.find(tagID => {
           return tagID == tagId;
