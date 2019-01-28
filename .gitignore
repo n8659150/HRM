@@ -2,5 +2,4 @@
 /.vscode
 /.DS_Store
 /api/.DS_Store
-/dist
 /package-lock.json
