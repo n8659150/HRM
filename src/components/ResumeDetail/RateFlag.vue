@@ -77,7 +77,11 @@ export default {
             tagsAttached: []
         };
     },
-
+    watch: {
+        'resume': async function () {
+            await this.getAttachedTags();
+        }
+    },
     async mounted() {
         await this.getAllTags();
         await this.getAttachedTags();
